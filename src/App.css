@@ -1,0 +1,37 @@
+/* src/App.css */
+
+.MuiTableCell-root {
+  font-size: 15px;
+  color: #333;
+}
+
+.MuiTableHead-root {
+  background-color: #f5f5f5;
+}
+
+.MuiTableRow-root:nth-of-type(odd) {
+  background-color: #f9f9f9;
+}
+
+.MuiTableRow-root:hover {
+  background-color: #e0f7fa;
+}
+
+.MuiAvatar-root {
+  width: 40px;
+  height: 40px;
+}
+
+.sidebar {
+  background-color: #f5f5f5;
+  border-right: 1px solid #ddd;
+}
+
+.logo-image {
+  width: 100%;
+  max-width: 400px;
+  margin-bottom: 16px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  background-color: transparent; /* Asegúrate de que sea transparente */
+}
