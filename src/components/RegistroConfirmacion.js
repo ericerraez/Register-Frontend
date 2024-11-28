@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { TextField, Button, Container, Typography, Toolbar, Box } from '@mui/material';
+import { TextField, Button, Container, Typography, Toolbar} from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import logo from '../assets/logo.png';
@@ -80,58 +80,143 @@ const RegistroConfirmacion = () => {
   };
   
 
-  const handlePrint = (registro) => {
-    const printWindow = window.open('', '_blank');
-    printWindow.document.write(`
+  const handlePrint = () => {
+    const printWindow = window.open('', '', 'height=600,width=700');
+    
+    const content = `
       <html>
-        <head>
-          <title>Imprimir Registro de Sacramento</title>
-          <style>
-            body { font-family: Arial, sans-serif; margin: 20px; }
-            h4 { text-align: center; }
-            h6 { margin-top: 20px; font-weight: bold; }
-            .field { margin: 5px 0; }
-            .container { max-width: 600px; margin: auto; }
-            .footer { margin-top: 30px; text-align: right; }
-            .logo { width: 200px; height: auto; margin-bottom: 20px; display: block; margin-left: auto; margin-right: auto; }
-          </style>
-        </head>
-        <body>
-          <div class="container">
-            <img src="${logo}" class="logo" alt="Logo" />
-            <h4>DIOCESIS DE AZOGES</h4>
-            <h4>PARROQUIA "INMACULADA CONCEPCION" DE SOCARTE</h4>
-            <h4>GENERAL MORALES - CANAR - ECUADOR</h4>
-            <h4>CERTIFICADO DE CONFIRMACION</h4>
+      <head>
+        <title>Certificado de Confirmación</title>
+        <style>
+          body {
+            font-family: Arial, sans-serif;
+            margin: 0px;
+            line-height: 1.4;
+            padding: 20px;
+            background-image: url('https://github.com/ericerraez/Register-Frontend/blob/master/public/fondo.png?raw=true');
+            background-size: small;
+            background-position: center;
+          }
+          .container {
+            width: 600px;
+            margin: auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+          }
+          .logo {
+            width: 120px;
+            height: auto;
+            display: block;
+            margin: 0 auto 10px auto;
+          }
+          h4, h5 {
+            text-align: center;
+            margin: 5px 0;
+            font-weight: normal;
+            font-size: 18px;
+          }
+          .field {
+            margin: 8px 0;
+          }
+          .field strong {
+            display: inline-block;
+            width: 160px;
+            font-size: 14px;
+          }
+          .line {
+            display: inline-block;
+            width: 300px;
+            border-bottom: 1px solid #000;
+            font-size: 14px;
+          }
+          .footer {
+            text-align: right;
+            margin-top: 30px;
+            font-size: 14px;
+          }
+          .signature {
+            text-align: center;
+            margin-top: 40px;
+          }
+        </style>
+      </head>
+      <body>
+        <div class="container">
+          <img src="${logo}" class="logo" alt="Logo" />
+          <h4>DIOCESIS DE AZOGUES</h4>
+          <h4>PARROQUIA "INMACULADA CONCEPCION" DE SOCARTE</h4>
+          <h4>GENERAL MORALES - CANAR - ECUADOR</h4>
+          <h5><strong>CERTIFICADO DE CONFIRMACIÓN</strong></h5>
   
-            <div class="field"><strong>Nombre:</strong> ${registro.nombre || 'Desconocido'}</div>
-            <div class="field"><strong>Fecha de Confirmación:</strong> ${registro.fecha_confirmacion || 'Desconocida'}</div>
-            <div class="field"><strong>Padre:</strong> ${registro.padre || 'Desconocido'}</div>
-            <div class="field"><strong>Madre:</strong> ${registro.madre || 'Desconocida'}</div>
-            <div class="field"><strong>Celebrante:</strong> ${registro.celebrante || 'Desconocido'}</div>
-  
-            <h6>Registro Eclesiástico</h6>
-            <div class="field"><strong>Año:</strong> ${registro.registroEclesiastico?.ano || 'Desconocido'}</div>
-            <div class="field"><strong>Tomo:</strong> ${registro.registroEclesiastico?.tomo || 'Desconocido'}</div>
-            <div class="field"><strong>Página:</strong> ${registro.registroEclesiastico?.pagina || 'Desconocida'}</div>
-            <div class="field"><strong>Acta:</strong> ${registro.registroEclesiastico?.acta || 'Desconocida'}</div>
-  
-            <h6>Registro Civil</h6>
-            <div class="field"><strong>Año:</strong> ${registro.registroCivil?.ano || 'Desconocido'}</div>
-            <div class="field"><strong>Tomo:</strong> ${registro.registroCivil?.tomo || 'Desconocido'}</div>
-            <div class="field"><strong>Página:</strong> ${registro.registroCivil?.pagina || 'Desconocida'}</div>
-            <div class="field"><strong>Acta:</strong> ${registro.registroCivil?.acta || 'Desconocida'}</div>
-  
-            <div class="field"><strong>Nota:</strong> ${registro.nota || 'Sin nota'}</div>
-  
-            <div class="footer">Firma: ______________________</div>
+          <div class="field">
+            <strong>Nombre:</strong> <span class="line">${formData.nombre || '_________________'}</span>
           </div>
-        </body>
+          <div class="field">
+            <strong>Fecha de Confirmación:</strong> <span class="line">${formData.fechaConfirmacion || '_________________'}</span>
+          </div>
+          <div class="field">
+            <strong>Padre:</strong> <span class="line">${formData.padre || '_________________'}</span>
+          </div>
+          <div class="field">
+            <strong>Madre:</strong> <span class="line">${formData.madre || '_________________'}</span>
+          </div>
+          <div class="field">
+            <strong>Celebrante:</strong> <span class="line">${formData.celebrante || '_________________'}</span>
+          </div>
+  
+          <h5>Registro Eclesiástico</h5>
+          <div class="field">
+            <strong>Año:</strong> <span class="line">${formData.registroEclesiastico?.ano || '__________'}</span>
+            <strong>Tomo:</strong> <span class="line">${formData.registroEclesiastico?.tomo || '__________'}</span>
+            <strong>Página:</strong> <span class="line">${formData.registroEclesiastico?.pagina || '__________'}</span>
+            <strong>Acta:</strong> <span class="line">${formData.registroEclesiastico?.acta || '__________'}</span>
+          </div>
+  
+          <h5>Registro Civil</h5>
+          <div class="field">
+            <strong>Año:</strong> <span class="line">${formData.registroCivil?.ano || '__________'}</span>
+            <strong>Tomo:</strong> <span class="line">${formData.registroCivil?.tomo || '__________'}</span>
+            <strong>Página:</strong> <span class="line">${formData.registroCivil?.pagina || '__________'}</span>
+          </div>
+          <div class="field">
+            <strong>Nota:</strong> <span class="line">${formData.nota || '________________________________________'}</span>
+          </div>
+  
+          <div class="footer">
+            <strong>Socarte, a</strong>
+            <span id="dia"></span> de <span id="mes"></span> del año <span id="anio"></span>
+          </div>
+  
+          <div class="signature">
+            <p><strong>Parroco</strong></p>
+            <div class="line"></div>
+          </div>
+        </div>
+  
+        <script>
+          window.onload = function () {
+            const fecha = new Date();
+            const dia = fecha.getDate();
+            const meses = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"];
+            const mes = meses[fecha.getMonth()];
+            const anio = fecha.getFullYear();
+  
+            document.getElementById('dia').textContent = dia;
+            document.getElementById('mes').textContent = mes;
+            document.getElementById('anio').textContent = anio;
+  
+            window.print();
+          };
+        </script>
+      </body>
       </html>
-    `);
+    `;
+  
+    printWindow.document.write(content);
     printWindow.document.close();
-    printWindow.print();
   };
+  
   
 
   return (
@@ -164,15 +249,14 @@ const RegistroConfirmacion = () => {
 
         <TextField label="Nota" name="nota" value={formData.nota} onChange={handleChange} fullWidth margin="normal" multiline rows={4} />
 
-        <Box sx={{ display: 'flex', justifyContent: 'space-between', marginTop: 2 }}>
-          <Button variant="contained" color="primary" type="submit">
-            Guardar
-          </Button>
-          <Button variant="contained" color="secondary" onClick={handlePrint}>
-            Imprimir
-          </Button>
-        </Box>
-        <Button
+        <Button type="submit" variant="contained" color="primary">Guardar</Button>
+      </form>
+
+      <Button variant="contained" color="secondary" onClick={handlePrint} sx={{ mt: 2 }}>
+        Imprimir
+      </Button>
+      
+      <Button
           variant="contained"
           color="info"
           onClick={() => navigate('/DetalleConfirmacion')}
@@ -180,9 +264,8 @@ const RegistroConfirmacion = () => {
         >
           Ver Registros
         </Button>
-      </form>
     </Container>
   );
-};
+}
 
 export default RegistroConfirmacion;

@@ -48,13 +48,58 @@ function RegistroMatrimonio() {
         <head>
           <title>Imprimir Registro de Matrimonio</title>
           <style>
-            body { font-family: Arial, sans-serif; margin: 20px; }
-            h4 { text-align: center; }
-            h6 { margin-top: 20px; }
-            .field { margin: 5px 0; }
-            .container { max-width: 600px; margin: auto; }
-            .footer { margin-top: 30px; text-align: right; }
-            .logo { width: 200px; height: auto; margin-bottom: 20px; display: block; margin-left: auto; margin-right: auto; }
+            body {
+              font-family: Arial, sans-serif;
+              margin: 20px;
+              background-image: url('https://github.com/ericerraez/Register-Frontend/blob/master/public/fondo.png?raw=true');
+              background-size: small;
+              background-position: center;
+              line-height: 1.4;
+            }
+            .container {
+              max-width: 600px;
+              margin: auto;
+              padding: 20px;
+              background: rgba(255, 255, 255, 0.8);
+              border-radius: 10px;
+            }
+            .logo {
+              width: 120px;
+              height: auto;
+              margin-bottom: 20px;
+              display: block;
+              margin-left: auto;
+              margin-right: auto;
+            }
+            h4, h5 {
+              text-align: center;
+              margin: 5px 0;
+              font-weight: normal;
+              font-size: 18px;
+            }
+            .field {
+              margin: 8px 0;
+            }
+            .field strong {
+              display: inline-block;
+              width: 160px;
+              font-size: 14px;
+            }
+            .line {
+              display: inline-block;
+              width: 300px;
+              border-bottom: 1px solid #000;
+              font-size: 14px;
+            }
+            .footer {
+              text-align: right;
+              margin-top: 30px;
+              font-size: 14px;
+            }
+            .signature {
+              text-align: center;
+              margin-top: 40px;
+            }
           </style>
         </head>
         <body>
@@ -63,41 +108,80 @@ function RegistroMatrimonio() {
             <h4>DIOCESIS DE AZOGES</h4>
             <h4>PARROQUIA "INMACULADA CONCEPCION" DE SOCARTE</h4>
             <h4>GENERAL MORALES - CANAR - ECUADOR</h4>
-            <h4>CERTIFICADO DE MATRIMONIO</h4>
-            <div class="field"><strong>Conyuges:</strong> ${formData.conyuges || 'Desconocidos'}</div>
-            <div class="field"><strong>Fecha de Matrimonio:</strong> ${formData.fecha_matrimonio || 'Desconocida'}</div>
-            <div class="field"><strong>Testigos:</strong> ${formData.testigos || 'Desconocidos'}</div>
-            <div class="field"><strong>Padrinos:</strong> ${formData.padrinos || 'Desconocidos'}</div>
-            <div class="field"><strong>Celebrante:</strong> ${formData.celebrante || 'Desconocido'}</div>
+            <h5><strong>CERTIFICADO DE MATRIMONIO</strong></h5>
 
-            <h6>Registro Eclesiástico</h6>
-            <div class="field"><strong>Año:</strong> ${formData.ano_registro_eclesiastico || 'Desconocido'}</div>
-            <div class="field"><strong>Tomo:</strong> ${formData.tomo_registro_eclesiastico || 'Desconocido'}</div>
-            <div class="field"><strong>Página:</strong> ${formData.pagina_registro_eclesiastico || 'Desconocida'}</div>
-            <div class="field"><strong>Acta:</strong> ${formData.acta_registro_eclesiastico || 'Desconocida'}</div>
+            <div class="field">
+              <strong>Conyuges:</strong> <span class="line">${formData.conyuges || 'Desconocidos'}</span>
+            </div>
+            <div class="field">
+              <strong>Fecha de Matrimonio:</strong> <span class="line">${formData.fecha_matrimonio || 'Desconocida'}</span>
+            </div>
+            <div class="field">
+              <strong>Testigos:</strong> <span class="line">${formData.testigos || 'Desconocidos'}</span>
+            </div>
+            <div class="field">
+              <strong>Padrinos:</strong> <span class="line">${formData.padrinos || 'Desconocidos'}</span>
+            </div>
+            <div class="field">
+              <strong>Celebrante:</strong> <span class="line">${formData.celebrante || 'Desconocido'}</span>
+            </div>
 
-            <h6>Registro Civil</h6>
-            <div class="field"><strong>Año:</strong> ${formData.ano_registro_civil || 'Desconocido'}</div>
-            <div class="field"><strong>Tomo:</strong> ${formData.tomo_registro_civil || 'Desconocido'}</div>
-            <div class="field"><strong>Página:</strong> ${formData.pagina_registro_civil || 'Desconocida'}</div>
-            <div class="field"><strong>Acta:</strong> ${formData.acta_registro_civil || 'Desconocida'}</div>
+            <h5>Registro eclesiástico</h5>
+            <div class="field">
+              <strong>Año:</strong> <span class="line">${formData.ano_registro_eclesiastico || '__________'}</span>
+              <strong>Tomo:</strong> <span class="line">${formData.tomo_registro_eclesiastico || '__________'}</span>
+              <strong>Página:</strong> <span class="line">${formData.pagina_registro_eclesiastico || '__________'}</span>
+              <strong>Acta:</strong> <span class="line">${formData.acta_registro_eclesiastico || '__________'}</span>
+            </div>
 
-            <div class="field"><strong>Nota:</strong> ${formData.nota || 'Sin nota'}</div>
+            <h5>Registro civil</h5>
+            <div class="field">
+              <strong>Año:</strong> <span class="line">${formData.ano_registro_civil || '__________'}</span>
+              <strong>Tomo:</strong> <span class="line">${formData.tomo_registro_civil || '__________'}</span>
+              <strong>Página:</strong> <span class="line">${formData.pagina_registro_civil || '__________'}</span>
+              <strong>Acta:</strong> <span class="line">${formData.acta_registro_civil || '__________'}</span>
+            </div>
 
-            <div class="footer">Firma: ______________________</div>
+            <div class="field">
+              <strong>Nota:</strong> <span class="line">${formData.nota || '________________________________________'}</span>
+            </div>
+
+            <div class="footer">
+              <strong>Socarte, a</strong> 
+              <span id="dia"></span> de 
+              <span id="mes"></span> del año
+              <span id="anio"></span>
+            </div>
+
+            <div class="signature">
+              <p><strong>Parroco</strong></p>
+              <div class="line"></div>
+            </div>
           </div>
+
           <script>
-            window.onload = function() {
+            window.onload = function () {
+              const fecha = new Date();
+              const dia = fecha.getDate();
+              const meses = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"];
+              const mes = meses[fecha.getMonth()];
+              const anio = fecha.getFullYear();
+
+              document.getElementById('dia').textContent = dia;
+              document.getElementById('mes').textContent = mes;
+              document.getElementById('anio').textContent = anio;
+
               window.print();
-              window.close();
-            }
+            };
           </script>
         </body>
       </html>
     `);
+    printWindow.document.write();
     printWindow.document.close();
-    printWindow.print();
-  };
+};
+
+
 
   return (
     <Container>

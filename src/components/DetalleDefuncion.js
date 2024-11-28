@@ -36,53 +36,116 @@ function DetalleDefuncion() {
   const handlePrint = (registro) => {
     const printWindow = window.open('', '', 'height=600,width=800');
     const content = `
-      <html>
-        <head>
-          <title>Registro de Defunción</title>
-          <style>
-            body { font-family: Arial, sans-serif; padding: 20px; }
-            h1, h4 { text-align: center; }
-            .content { margin-top: 30px; }
-            .content p { margin: 5px 0; }
-            .label { font-weight: bold; }
-            .value { margin-left: 10px; }
-            .field { margin-bottom: 10px; }
-            .footer { margin-top: 30px; text-align: right; font-size: 14px; }
-            .logo { width: 200px; height: auto; display: block; margin-left: auto; margin-right: auto; margin-bottom: 20px; }
-          </style>
-        </head>
-        <body>
-          <div class="content">
-            <img src="${logo}" class="logo" alt="Logo" />
-            <h1>REGISTRO DE DEFUNCIÓN</h1>
-            <h4>DIOCESIS DE AZOGES</h4>
-            <h4>PARROQUIA "INMACULADA CONCEPCION" DE SOCARTE</h4>
-            <h4>GENERAL MORALES - CANAR - ECUADOR</h4>
-  
-            <div class="field"><span class="label">Nombre del Fallecido:</span><span class="value"> ${registro.nombre || 'Desconocido'}</span></div>
-            <div class="field"><span class="label">Estado Civil:</span><span class="value"> ${registro.estado_civil || 'Desconocido'}</span></div>
-            <div class="field"><span class="label">Edad:</span><span class="value"> ${registro.edad || 'Desconocida'}</span></div>
-            <div class="field"><span class="label">Lugar de Defunción:</span><span class="value"> ${registro.lugar_fallecimiento || 'Desconocido'}</span></div>
-            <div class="field"><span class="label">Causa de Defunción:</span><span class="value"> ${registro.causa_fallecimiento || 'Desconocida'}</span></div>
-  
+    <html>
+    <head>
+      <title>Certificado de Defunción</title>
+      <style>
+        body {
+          font-family: Arial, sans-serif;
+          margin: 0px;
+          line-height: 1.4;
+          padding: 20px;
+          background-image: url('https://github.com/ericerraez/Register-Frontend/blob/master/public/fondo.png?raw=true');
+          background-size: small;
+          background-position: center;
+        }
+        .container {
+          width: 600px;
+          margin: auto;
+          padding: 20px;
+          background: rgba(255, 255, 255, 0.8);
+          border-radius: 10px;
+        }
+        .logo {
+          width: 120px;
+          height: auto;
+          display: block;
+          margin: 0 auto 10px auto;
+        }
+        h4, h5 {
+          text-align: center;
+          margin: 5px 0;
+          font-weight: normal;
+          font-size: 18px;
+        }
+        .field {
+          margin: 8px 0;
+        }
+        .field strong {
+          display: inline-block;
+          width: 160px;
+          font-size: 14px;
+        }
+        .line {
+          display: inline-block;
+          width: 300px;
+          border-bottom: 1px solid #000;
+          font-size: 14px;
+        }
+        .footer {
+          text-align: right;
+          margin-top: 30px;
+          font-size: 14px;
+        }
+        .signature {
+          text-align: center;
+          margin-top: 40px;
+        }
+      </style>
+    </head>
+    <body>
+      <div class="container">
+          <img src="${logo}" class="logo" alt="Logo" />
+          <h4>DIOCESIS DE AZOGUES</h4>
+          <h4>PARROQUIA "INMACULADA CONCEPCION" DE SOCARTE</h4>
+          <h4>GENERAL MORALES - CANAR - ECUADOR</h4>
+          <h5><strong>CERTIFICADO DE DEFUNCION</strong></h5>
+
+            <div class="field">
+              <strong>Nombre del Fallecido:</strong><span class="line">${registro.nombre || 'Desconocido'}</span>
+            </div>
+            <div class="field">
+              <strong>Estado Civil:</strong><span class="line">${registro.estado_civil || 'Desconocido'}</span>
+            </div>
+            <div class="field">
+              <strong>Edad:</strong><span class="line">${registro.edad || 'Desconocida'}</span>
+            </div>
+            <div class="field">
+              <strong>Lugar de Defunción:</strong><span class="line">${registro.lugar_fallecimiento || 'Desconocido'}</span>
+            </div>
+            <div class="field">
+              <strong>Causa de Defunción:</strong><span class="line">${registro.causa_fallecimiento || 'Desconocida'}</span>
+            </div>
+
             <h4>Registro Eclesiástico</h4>
-            <div class="field"><span class="label">Año:</span><span class="value"> ${registro.ano_registro_eclesiastico || 'Desconocido'}</span></div>
-            <div class="field"><span class="label">Tomo:</span><span class="value"> ${registro.tomo || 'Desconocido'}</span></div>
-            <div class="field"><span class="label">Página:</span><span class="value"> ${registro.pagina || 'Desconocida'}</span></div>
-            <div class="field"><span class="label">Acta:</span><span class="value"> ${registro.acta || 'Desconocida'}</span></div>
-  
+            <div class="field">
+              <strong>Año:</strong><span class="line">${registro.ano_registro_eclesiastico || 'Desconocido'}</span>
+              <strong>Tomo:</strong><span class="line">${registro.tomo || 'Desconocido'}</span>
+            </div>
+            <div class="field">
+              <strong>Página:</strong><span class="line">${registro.pagina || 'Desconocida'}</span>
+              <strong>Acta:</strong><span class="line">${registro.acta || 'Desconocida'}</span>
+            </div>
+
             <h4>Registro Civil</h4>
-            <div class="field"><span class="label">Acta:</span><span class="value"> ${registro.datos_registro_civil_acta || 'Desconocida'}</span></div>
-            <div class="field"><span class="label">Tomo:</span><span class="value"> ${registro.datos_registro_civil_tomo || 'Desconocido'}</span></div>
-            <div class="field"><span class="label">Página:</span><span class="value"> ${registro.datos_registro_civil_pagina || 'Desconocida'}</span></div>
-  
-            <div class="field"><span class="label">Fecha de Emisión del Certificado:</span><span class="value"> ${registro.fecha_emision_certificado_defuncion || 'Desconocida'}</span></div>
-            <div class="field"><span class="label">Párroco:</span><span class="value"> ${registro.parroco || 'Desconocido'}</span></div>
-            <div class="field"><span class="label">Nota:</span><span class="value"> ${registro.nota || 'Sin nota'}</span></div>
+            <div class="field">
+              <strong>Acta:</strong><span class="line">${registro.datos_registro_civil_acta || 'Desconocida'}</span>
+              <strong>Tomo:</strong><span class="line">${registro.datos_registro_civil_tomo || 'Desconocido'}</span>
+            </div>
+            <div class="field">
+              <strong>Página:</strong><span class="line">${registro.datos_registro_civil_pagina || 'Desconocida'}</span>
+            </div>
+
+            <div class="field">
+              <strong>Fecha de Emisión del Certificado:</strong><span class="line">${registro.fecha_emision_certificado_defuncion || 'Desconocida'}</span>
+            </div>
+            <div class="field">
+              <strong>Nota:</strong><span class="line">${registro.nota || 'Sin nota'}</span>
+            </div>
           </div>
-  
-          <div class="footer">Firma: ______________________</div>
-  
+
+          <div class="footer">PARROCO: ______________________</div>
+
           <script>
             window.onload = function() {
               window.print();
@@ -94,7 +157,7 @@ function DetalleDefuncion() {
     `;
     printWindow.document.write(content);
     printWindow.document.close();
-  };
+};
   
 
   // Función para eliminar un registro

@@ -35,66 +35,145 @@ function DetalleMatrimonio() {
 
   // Función para manejar la impresión
   const handlePrint = (registro) => {
-    const printWindow = window.open('', '', 'height=600,width=800');
-    const content = `
+    const printWindow = window.open('', '_blank');
+    printWindow.document.write(`
       <html>
         <head>
-          <title>Certificado de Matrimonio</title>
+          <title>Imprimir Registro de Matrimonio</title>
           <style>
-            body { font-family: Arial, sans-serif; padding: 20px; }
-            h1, h4 { text-align: center; }
-            .content { margin-top: 30px; }
-            .content p { margin: 5px 0; }
-            .label { font-weight: bold; }
-            .value { margin-left: 10px; }
-            .field { margin-bottom: 10px; }
-            .footer { margin-top: 30px; text-align: right; font-size: 14px; }
-            .logo { width: 200px; height: auto; display: block; margin-left: auto; margin-right: auto; margin-bottom: 20px; }
+            body {
+              font-family: Arial, sans-serif;
+              margin: 20px;
+              background-image: url('https://github.com/ericerraez/Register-Frontend/blob/master/public/fondo.png?raw=true');
+              background-size: small;
+              background-position: center;
+              line-height: 1.4;
+            }
+            .container {
+              max-width: 600px;
+              margin: auto;
+              padding: 20px;
+              background: rgba(255, 255, 255, 0.8);
+              border-radius: 10px;
+            }
+            .logo {
+              width: 120px;
+              height: auto;
+              margin-bottom: 20px;
+              display: block;
+              margin-left: auto;
+              margin-right: auto;
+            }
+            h4, h5 {
+              text-align: center;
+              margin: 5px 0;
+              font-weight: normal;
+              font-size: 18px;
+            }
+            .field {
+              margin: 8px 0;
+            }
+            .field strong {
+              display: inline-block;
+              width: 160px;
+              font-size: 14px;
+            }
+            .line {
+              display: inline-block;
+              width: 300px;
+              border-bottom: 1px solid #000;
+              font-size: 14px;
+            }
+            .footer {
+              text-align: right;
+              margin-top: 30px;
+              font-size: 14px;
+            }
+            .signature {
+              text-align: center;
+              margin-top: 40px;
+            }
           </style>
         </head>
         <body>
-          <div class="content">
+          <div class="container">
             <img src="${logo}" class="logo" alt="Logo" />
-            <h1>CERTIFICADO DE MATRIMONIO</h1>
             <h4>DIOCESIS DE AZOGES</h4>
             <h4>PARROQUIA "INMACULADA CONCEPCION" DE SOCARTE</h4>
             <h4>GENERAL MORALES - CANAR - ECUADOR</h4>
-
-            <div class="field"><span class="label">Conyuges:</span><span class="value"> ${registro.conyuges || 'No disponible'}</span></div>
-            <div class="field"><span class="label">Fecha de Matrimonio:</span><span class="value"> ${registro.fecha_matrimonio || 'No disponible'}</span></div>
-            <div class="field"><span class="label">Testigos:</span><span class="value"> ${registro.testigos || 'No disponible'}</span></div>
-            <div class="field"><span class="label">Padrinos:</span><span class="value"> ${registro.padrinos || 'No disponible'}</span></div>
-            <div class="field"><span class="label">Celebrante:</span><span class="value"> ${registro.celebrante || 'No disponible'}</span></div>
-
-            <h4>Registro Eclesiástico</h4>
-            <div class="field"><span class="label">Año:</span><span class="value"> ${registro.ano_registro_eclesiastico || 'No disponible'}</span></div>
-            <div class="field"><span class="label">Tomo:</span><span class="value"> ${registro.tomo_registro_eclesiastico || 'No disponible'}</span></div>
-            <div class="field"><span class="label">Página:</span><span class="value"> ${registro.pagina_registro_eclesiastico || 'No disponible'}</span></div>
-            <div class="field"><span class="label">Acta:</span><span class="value"> ${registro.acta_registro_eclesiastico || 'No disponible'}</span></div>
-
-            <h4>Registro Civil</h4>
-            <div class="field"><span class="label">Año:</span><span class="value"> ${registro.ano_registro_civil || 'No disponible'}</span></div>
-            <div class="field"><span class="label">Tomo:</span><span class="value"> ${registro.tomo_registro_civil || 'No disponible'}</span></div>
-            <div class="field"><span class="label">Página:</span><span class="value"> ${registro.pagina_registro_civil || 'No disponible'}</span></div>
-            <div class="field"><span class="label">Acta:</span><span class="value"> ${registro.acta_registro_civil || 'No disponible'}</span></div>
-
-            <div class="field"><span class="label">Nota:</span><span class="value"> ${registro.nota || 'No disponible'}</span></div>
-
-            <div class="footer">Firma: ______________________</div>
+            <h5><strong>CERTIFICADO DE MATRIMONIO</strong></h5>
+  
+            <div class="field">
+              <strong>Conyuges:</strong> <span class="line">${registro.conyuges || 'Desconocidos'}</span>
+            </div>
+            <div class="field">
+              <strong>Fecha de Matrimonio:</strong> <span class="line">${registro.fecha_matrimonio || 'Desconocida'}</span>
+            </div>
+            <div class="field">
+              <strong>Testigos:</strong> <span class="line">${registro.testigos || 'Desconocidos'}</span>
+            </div>
+            <div class="field">
+              <strong>Padrinos:</strong> <span class="line">${registro.padrinos || 'Desconocidos'}</span>
+            </div>
+            <div class="field">
+              <strong>Celebrante:</strong> <span class="line">${registro.celebrante || 'Desconocido'}</span>
+            </div>
+  
+            <h5>Registro eclesiástico</h5>
+            <div class="field">
+              <strong>Año:</strong> <span class="line">${registro.ano_registro_eclesiastico || '__________'}</span>
+              <strong>Tomo:</strong> <span class="line">${registro.tomo_registro_eclesiastico || '__________'}</span>
+              <strong>Página:</strong> <span class="line">${registro.pagina_registro_eclesiastico || '__________'}</span>
+              <strong>Acta:</strong> <span class="line">${registro.acta_registro_eclesiastico || '__________'}</span>
+            </div>
+  
+            <h5>Registro civil</h5>
+            <div class="field">
+              <strong>Año:</strong> <span class="line">${registro.ano_registro_civil || '__________'}</span>
+              <strong>Tomo:</strong> <span class="line">${registro.tomo_registro_civil || '__________'}</span>
+              <strong>Página:</strong> <span class="line">${registro.pagina_registro_civil || '__________'}</span>
+              <strong>Acta:</strong> <span class="line">${registro.acta_registro_civil || '__________'}</span>
+            </div>
+  
+            <div class="field">
+              <strong>Nota:</strong> <span class="line">${registro.nota || '________________________________________'}</span>
+            </div>
+  
+            <div class="footer">
+              <strong>Socarte, a</strong> 
+              <span id="dia"></span> de 
+              <span id="mes"></span> del año
+              <span id="anio"></span>
+            </div>
+  
+            <div class="signature">
+              <p><strong>Parroco</strong></p>
+              <div class="line"></div>
+            </div>
           </div>
+  
           <script>
-            window.onload = function() {
+            window.onload = function () {
+              const fecha = new Date();
+              const dia = fecha.getDate();
+              const meses = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"];
+              const mes = meses[fecha.getMonth()];
+              const anio = fecha.getFullYear();
+  
+              document.getElementById('dia').textContent = dia;
+              document.getElementById('mes').textContent = mes;
+              document.getElementById('anio').textContent = anio;
+  
               window.print();
-              window.close();
-            }
+            };
           </script>
         </body>
       </html>
-    `;
-    printWindow.document.write(content);
+    `);
     printWindow.document.close();
-    printWindow.print();
   };
+  
+
 
   // Función para eliminar un registro
   const handleDelete = async (id) => {
