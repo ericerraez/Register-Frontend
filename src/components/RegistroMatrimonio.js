@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { TextField, Button, Container, Typography, Toolbar, Box } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import logo from '../assets/logo.png';
+
 
 function RegistroMatrimonio() {
   const navigate = useNavigate();
@@ -48,14 +48,7 @@ function RegistroMatrimonio() {
         <head>
           <title>Imprimir Registro de Matrimonio</title>
           <style>
-            body {
-              font-family: Arial, sans-serif;
-              margin: 20px;
-              background-image: url('https://github.com/ericerraez/Register-Frontend/blob/master/public/fondo.png?raw=true');
-              background-size: small;
-              background-position: center;
-              line-height: 1.4;
-            }
+            body 
             .container {
               max-width: 600px;
               margin: auto;
@@ -100,17 +93,15 @@ function RegistroMatrimonio() {
               text-align: center;
               margin-top: 40px;
             }
-          </style>
-        </head>
-        <body>
-          <div class="container">
-            <img src="${logo}" class="logo" alt="Logo" />
-            <h4>DIOCESIS DE AZOGES</h4>
-            <h4>PARROQUIA "INMACULADA CONCEPCION" DE SOCARTE</h4>
-            <h4>GENERAL MORALES - CANAR - ECUADOR</h4>
-            <h5><strong>CERTIFICADO DE MATRIMONIO</strong></h5>
-
-            <div class="field">
+          .header-space {
+        height: 100px; 
+        </style>
+      </head>
+      <body>
+        <div class="container">
+           <div class="header-space"></div>
+  
+          <div class="field">
               <strong>Conyuges:</strong> <span class="line">${formData.conyuges || 'Desconocidos'}</span>
             </div>
             <div class="field">

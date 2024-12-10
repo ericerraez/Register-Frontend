@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import logo from '../assets/logo.png';
 import {
   Container,
   Typography,
@@ -40,15 +39,7 @@ function DetalleConfirmacion() {
     <head>
       <title>Certificado de Confirmación</title>
       <style>
-        body {
-          font-family: Arial, sans-serif;
-          margin: 0px;
-          line-height: 1.4;
-          padding: 20px;
-          background-image: url('https://github.com/ericerraez/Register-Frontend/blob/master/public/fondo.png?raw=true');
-          background-size: small;
-          background-position: center;
-        }
+        body 
         .container {
           width: 600px;
           margin: auto;
@@ -91,17 +82,15 @@ function DetalleConfirmacion() {
           text-align: center;
           margin-top: 40px;
         }
-      </style>
-    </head>
-    <body>
-      <div class="container">
-        <img src="${logo}" class="logo" alt="Logo" />
-        <h4>DIOCESIS DE AZOGUES</h4>
-        <h4>PARROQUIA "INMACULADA CONCEPCION" DE SOCARTE</h4>
-        <h4>GENERAL MORALES - CANAR - ECUADOR</h4>
-        <h5><strong>CERTIFICADO DE CONFIRMACIÓN</strong></h5>
+          .header-space {
+        height: 100px; 
+        </style>
+      </head>
+      <body>
+        <div class="container">
+           <div class="header-space"></div>
   
-        <div class="field">
+          <div class="field">
           <strong>Nombre:</strong> <span class="line">${registro.nombre || '_________________'}</span>
         </div>
         <div class="field">

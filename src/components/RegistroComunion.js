@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { TextField, Button, Container, Typography, Toolbar } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import logo from '../assets/logo.png';
 
 function RegistroComunion() {
   const navigate = useNavigate();
@@ -54,15 +53,7 @@ function RegistroComunion() {
       <head>
         <title>Certificado de Primera Comunión</title>
         <style>
-          body {
-            font-family: Arial, sans-serif;
-            margin: 0px;
-            line-height: 1.4;
-            padding: 20px;
-            background-image: url('https://github.com/ericerraez/Register-Frontend/blob/master/public/fondo.png?raw=true');
-            background-size: small;
-            background-position: center;
-          }
+          body 
           .container {
             width: 600px;
             margin: auto;
@@ -105,15 +96,13 @@ function RegistroComunion() {
             text-align: center;
             margin-top: 40px;
           }
+          .header-space {
+        height: 90px; 
         </style>
       </head>
       <body>
         <div class="container">
-          <img src="${logo}" class="logo" alt="Logo" />
-          <h4>DIOCESIS DE AZOGUES</h4>
-          <h4>PARROQUIA "INMACULADA CONCEPCION" DE SOCARTE</h4>
-          <h4>GENERAL MORALES - CAÑAR - ECUADOR</h4>
-          <h5><strong>CERTIFICADO DE PRIMERA COMUNIÓN</strong></h5>
+           <div class="header-space"></div>
   
           <div class="field">
             <strong>Nombre:</strong> <span class="line">${formData.nombre || '_________________'}</span>
