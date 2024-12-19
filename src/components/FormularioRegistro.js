@@ -47,64 +47,75 @@ function FormularioRegistro() {
   const handlePrint = () => {
     const printWindow = window.open('', '', 'height=600,width=700');
     const content = `
-<html>
-  <head>
-    <title>Certificado de Bautismo</title>
-    <style>
-      body 
-
-      .container {
-        width: 600px;
-        margin: auto;
-        padding: 20px;
-        background: rgba(255, 255, 255, 0.8); /* Fondo semi-transparente para que el texto sea legible */
-        border-radius: 10px;
-      }
-      .header-space {
-        height: 50px; 
-      }
-      .logo {
-        width: 120px;
-        height: auto;
-        display: block;
-        margin: 0 auto 10px auto;
-      }
-      h4, h5 {
-        text-align: center;
-        margin: 5px 0;
-        font-weight: normal;
-        font-size: 18px;
-      }
-      .field {
-        margin: 8px 0;
-      }
-      .field strong {
-        display: inline-block;
-        width: 160px;
-        font-size: 14px;
-      }
-      .line {
-        display: inline-block;
-        width: 300px;
-        border-bottom: 1px solid #000;
-        font-size: 14px;
-      }
-      .footer {
-        text-align: right;
-        margin-top: 30px;
-        font-size: 14px;
-      }
-      .signature {
-        text-align: center;
-        margin-top: 40px;
-      }
-    </style>
-  </head>
-  <body>
-    <!-- Espacio en blanco al inicio -->
-    <div class="header-space"></div>
-   
-    <div class="container">
+ <html>
+    <head>
+      <title>Certificado de Bautizo</title>
+      <style>
+        body {
+          font-family: Arial, sans-serif;
+        }
+        .container {
+          width: 600px;
+          margin: auto;
+          padding: 20px;
+          background: rgba(255, 255, 255, 0.8);
+          border-radius: 10px;
+        }
+        .spacer {
+          height: 50px;
+        }
+        h4, h5 {
+          text-align: center;
+          margin: 5px 0;
+          font-weight: normal;
+          font-size: 24px; /* Aumentado */
+        }
+        .field {
+          margin: 8px 0;
+        }
+        .field strong {
+          display: inline-block;
+          width: 160px;
+          font-size: 18px; /* Aumentado */
+          text-align: left; /* Alineado a la izquierda */
+        }
+        .line {
+          display: inline-block;
+          width: 300px;
+          border-bottom: 1px solid #000;
+          font-size: 18px; /* Aumentado */
+          text-align: center; /* Centrado del texto introducido */
+        }
+        .footer {
+          text-align: left;
+          margin-top: 30px;
+          font-size: 18px; /* Aumentado */
+        }
+        .signature {
+          text-align: center;
+          margin-top: 40px;
+        }
+        .signature-line {
+          border-bottom: 1px solid #000;
+          width: 200px;
+          margin: 0 auto 5px;
+        }
+        .note {
+          text-align: left; /* Alineación a la izquierda */
+          margin-top: 40px;
+          font-size: 16px; /* Aumentado */
+          font-style: italic;
+        }
+        .header-space {
+          height: 60px;
+        }
+      </style>
+    </head>
+    <body>
+      <div class="container">
+        <h4>CERTIFICADO DE BAUTIZO</h4>
+        <div class="spacer"></div>
+        
       <div class="field">
         <strong>De:</strong> <span class="line">${formData.nombre || '_________________'}</span>
       </div>
@@ -130,6 +141,7 @@ function FormularioRegistro() {
       <div class="field">
         <strong>Celebrante:</strong> <span class="line">${formData.celebrante || '_________________'}</span>
       </div>
+        <div class="header-space"></div>
 
       <h5>Registro eclesiástico</h5>
       <div class="field">
@@ -138,6 +150,7 @@ function FormularioRegistro() {
         <strong>Página:</strong> <span class="line">${formData.pagina_registro_eclesiastico || '__________'}</span>
         <strong>Acta:</strong> <span class="line">${formData.acta_registro_eclesiastico || '__________'}</span>
       </div>
+        <div class="header-space"></div>
 
       <h5>Registro civil</h5>
       <div class="field">
@@ -150,20 +163,20 @@ function FormularioRegistro() {
         <strong>Cédula:</strong> <span class="line">${formData.cedula_registro_civil || '__________'}</span>
       </div>
 
-      <div class="field">
-        <strong>Nota:</strong> <span class="line">${formData.nota || '________________________________________'}</span>
-      </div>
-
       <div class="footer">
         <strong>Socarte, a</strong> 
         <span id="dia"></span> de 
         <span id="mes"></span> del año
         <span id="anio"></span>
       </div>
+        <div class="header-space"></div>
 
       <div class="signature">
-        <p><strong>Parroco</strong></p>
-        <div class="line"></div>
+          <div class="signature-line"></div>
+          <p><strong>Párroco</strong></p>
+        </div>
+      <div class="note">
+        <strong>Nota:</strong> <span class="line">${formData.nota || '________________________________________'}</span>
       </div>
     </div>
 
@@ -189,7 +202,6 @@ function FormularioRegistro() {
     printWindow.document.write(content);
     printWindow.document.close();
   };
-  
   
   const handleGetData = async () => {
     try {

@@ -38,39 +38,41 @@ function DetalleDefuncion() {
     <head>
       <title>Certificado de Defunción</title>
       <style>
-        body 
+        body {
+          font-family: Arial, sans-serif;
+          font-size: 18px;
+        }
         .container {
           width: 600px;
           margin: auto;
           padding: 20px;
-          background: rgba(255, 255, 255, 0.8);
           border-radius: 10px;
-        }
-        .logo {
-          width: 120px;
-          height: auto;
-          display: block;
-          margin: 0 auto 10px auto;
         }
         h4, h5 {
           text-align: center;
           margin: 5px 0;
           font-weight: normal;
-          font-size: 18px;
+          font-size: 22px;
         }
         .field {
-          margin: 8px 0;
+          margin: 10px 0;
+          display: flex;
+          align-items: center;
         }
         .field strong {
           display: inline-block;
           width: 160px;
-          font-size: 14px;
+          text-align: left;
+          font-size: 16px;
+          padding-right: 10px;
         }
         .line {
           display: inline-block;
           width: 300px;
           border-bottom: 1px solid #000;
-          font-size: 14px;
+          text-align: center;
+          font-size: 16px;
+          padding: 5px 0;
         }
         .footer {
           text-align: right;
@@ -81,71 +83,108 @@ function DetalleDefuncion() {
           text-align: center;
           margin-top: 40px;
         }
-          .header-space {
-        height: 100px; 
-        </style>
-      </head>
-      <body>
-        <div class="container">
-           <div class="header-space"></div>
-  
-          <div class="field">
-              <strong>Nombre del Fallecido:</strong><span class="line">${registro.nombre || 'Desconocido'}</span>
-            </div>
-            <div class="field">
-              <strong>Estado Civil:</strong><span class="line">${registro.estado_civil || 'Desconocido'}</span>
-            </div>
-            <div class="field">
-              <strong>Edad:</strong><span class="line">${registro.edad || 'Desconocida'}</span>
-            </div>
-            <div class="field">
-              <strong>Lugar de Defunción:</strong><span class="line">${registro.lugar_fallecimiento || 'Desconocido'}</span>
-            </div>
-            <div class="field">
-              <strong>Causa de Defunción:</strong><span class="line">${registro.causa_fallecimiento || 'Desconocida'}</span>
-            </div>
+        .signature-line {
+          width: 200px;
+          border-top: 1px solid #000;
+          margin: 0 auto;
+        }
+        .header-space {
+          height: 60px;
+        }
+        .note {
+          text-align: left;
+          margin-top: 20px;
+          font-size: 14px;
+        }
+      </style>
+    </head>
+    <body>
+      <div class="container">
+        <h4>CERTIFICADO DE DEFUNCIÓN</h4>
+        <div class="header-space"></div>
 
-            <h4>Registro Eclesiástico</h4>
-            <div class="field">
-              <strong>Año:</strong><span class="line">${registro.ano_registro_eclesiastico || 'Desconocido'}</span>
-              <strong>Tomo:</strong><span class="line">${registro.tomo || 'Desconocido'}</span>
-            </div>
-            <div class="field">
-              <strong>Página:</strong><span class="line">${registro.pagina || 'Desconocida'}</span>
-              <strong>Acta:</strong><span class="line">${registro.acta || 'Desconocida'}</span>
-            </div>
+        <div class="field">
+          <strong>Nombre del Fallecido:</strong><span class="line">${registro.nombre || 'Desconocido'}</span>
+        </div>
+        <div class="field">
+          <strong>Estado Civil:</strong><span class="line">${registro.estado_civil || 'Desconocido'}</span>
+        </div>
+        <div class="field">
+          <strong>Edad:</strong><span class="line">${registro.edad || 'Desconocida'}</span>
+        </div>
+        <div class="field">
+          <strong>Lugar de Defunción:</strong><span class="line">${registro.lugar_fallecimiento || 'Desconocido'}</span>
+        </div>
+        <div class="field">
+          <strong>Causa de Defunción:</strong><span class="line">${registro.causa_fallecimiento || 'Desconocida'}</span>
+        </div>
+    <div class="header-space"></div>
 
-            <h4>Registro Civil</h4>
-            <div class="field">
-              <strong>Acta:</strong><span class="line">${registro.datos_registro_civil_acta || 'Desconocida'}</span>
-              <strong>Tomo:</strong><span class="line">${registro.datos_registro_civil_tomo || 'Desconocido'}</span>
-            </div>
-            <div class="field">
-              <strong>Página:</strong><span class="line">${registro.datos_registro_civil_pagina || 'Desconocida'}</span>
-            </div>
+        <h4>Registro Eclesiástico</h4>
+                <div class="header-space"></div>
 
-            <div class="field">
-              <strong>Fecha de Emisión del Certificado:</strong><span class="line">${registro.fecha_emision_certificado_defuncion || 'Desconocida'}</span>
-            </div>
-            <div class="field">
-              <strong>Nota:</strong><span class="line">${registro.nota || 'Sin nota'}</span>
-            </div>
-          </div>
+        <div class="field">
+          <strong>Año:</strong><span class="line">${registro.ano_registro_eclesiastico || 'Desconocido'}</span>
+          <strong>Tomo:</strong><span class="line">${registro.tomo || 'Desconocido'}</span>
+        </div>
+        <div class="field">
+          <strong>Página:</strong><span class="line">${registro.pagina || 'Desconocida'}</span>
+          <strong>Acta:</strong><span class="line">${registro.acta || 'Desconocida'}</span>
+        </div>
+    <div class="header-space"></div>
 
-          <div class="footer">PARROCO: ______________________</div>
+        <h4>Registro Civil</h4>
+                <div class="header-space"></div>
 
-          <script>
-            window.onload = function() {
-              window.print();
-              window.close();
-            }
-          </script>
-        </body>
-      </html>
+        <div class="field">
+          <strong>Acta:</strong><span class="line">${registro.datos_registro_civil_acta || 'Desconocida'}</span>
+          <strong>Tomo:</strong><span class="line">${registro.datos_registro_civil_tomo || 'Desconocido'}</span>
+        </div>
+        <div class="field">
+          <strong>Página:</strong><span class="line">${registro.datos_registro_civil_pagina || 'Desconocida'}</span>
+        </div>
+
+        <div class="field">
+          <strong>Fecha de Emisión del Certificado:</strong><span class="line">${registro.fecha_emision_certificado_defuncion || 'Desconocida'}</span>
+        </div>
+            <div class="header-space"></div>
+
+        <div class="signature">
+          <div class="signature-line"></div>
+          <p><strong>Párroco</strong></p>
+        </div>
+
+        <div class="footer">
+          <strong>Socarte, a</strong> 
+          <span id="dia"></span> de <span id="mes"></span> del año <span id="anio"></span>
+        </div>
+
+        <div class="note">
+          <strong>Nota:</strong> <span>${registro.nota || '_________________'}</span>
+        </div>
+      </div>
+      <script>
+        window.onload = function () {
+          const fecha = new Date();
+          const dia = fecha.getDate();
+          const meses = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"];
+          const mes = meses[fecha.getMonth()];
+          const anio = fecha.getFullYear();
+
+          document.getElementById('dia').textContent = dia;
+          document.getElementById('mes').textContent = mes;
+          document.getElementById('anio').textContent = anio;
+
+          window.print();
+        };
+      </script>
+    </body>
+    </html>
     `;
     printWindow.document.write(content);
     printWindow.document.close();
 };
+
   
 
   // Función para eliminar un registro

@@ -50,54 +50,67 @@ function RegistroComunion() {
     const printWindow = window.open('', '', 'height=600,width=700');
     const content = `
       <html>
-      <head>
-        <title>Certificado de Primera Comunión</title>
-        <style>
-          body 
-          .container {
-            width: 600px;
-            margin: auto;
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.8);
-            border-radius: 10px;
-          }
-          .logo {
-            width: 120px;
-            height: auto;
-            display: block;
-            margin: 0 auto 10px auto;
-          }
-          h4, h5 {
-            text-align: center;
-            margin: 5px 0;
-            font-weight: normal;
-            font-size: 18px;
-          }
-          .field {
-            margin: 8px 0;
-          }
-          .field strong {
-            display: inline-block;
-            width: 160px;
-            font-size: 14px;
-          }
-          .line {
-            display: inline-block;
-            width: 300px;
-            border-bottom: 1px solid #000;
-            font-size: 14px;
-          }
-          .footer {
-            text-align: right;
-            margin-top: 30px;
-            font-size: 14px;
-          }
-          .signature {
-            text-align: center;
-            margin-top: 40px;
-          }
-          .header-space {
-        height: 90px; 
+   <head>
+     <title>Certificado de Primera Comunión</title>
+     <style>
+       body {
+         font-family: Arial, sans-serif;
+       }
+       .container {
+         width: 600px;
+         margin: auto;
+         padding: 20px;
+         background: rgba(255, 255, 255, 0.8);
+         border-radius: 10px;
+       }
+       .logo {
+         width: 120px;
+         height: auto;
+         display: block;
+         margin: 0 auto 10px auto;
+       }
+       h4, h5 {
+         text-align: center;
+         margin: 5px 0;
+         font-weight: normal;
+         font-size: 22px; /* Tamaño aumentado */
+       }
+       .field {
+         margin: 8px 0;
+         display: flex;
+         justify-content: space-between;
+         align-items: center;
+       }
+       .field strong {
+         display: inline-block;
+         width: 160px;
+         font-size: 18px
+         text-align: left;
+       }
+       .line {
+         display: inline-block;
+         width: 300px;
+         border-bottom: 1px solid #000;
+         font-size: 16px; /* Tamaño aumentado */
+         text-align: center;
+       }
+       .footer {
+         text-align: right;
+         margin-top: 30px;
+         font-size: 16px; /* Tamaño aumentado */
+       }
+       .signature {
+         text-align: center;
+         margin-top: 40px;
+       }
+       .signature-line {
+         border-bottom: 1px solid #000;
+         width: 200px;
+         margin: 0 auto 5px;
+       }
+       .header-space {
+         height: 60px;
+       }
         </style>
       </head>
       <body>

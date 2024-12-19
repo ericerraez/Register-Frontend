@@ -86,41 +86,45 @@ const RegistroConfirmacion = () => {
     const content = `
       <html>
       <head>
-        <title>Certificado de Confirmación</title>
+        <title>CERTIFICADO DE CONFIRMACIÓN</title>
         <style>
-          body 
+          body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+          }
           .container {
             width: 600px;
-            margin: auto;
+            margin: 40px auto;
             padding: 20px;
-            background: rgba(255, 255, 255, 0.8);
             border-radius: 10px;
           }
           .logo {
             width: 120px;
             height: auto;
             display: block;
-            margin: 0 auto 10px auto;
+            margin: 0 auto 20px auto;
           }
           h4, h5 {
             text-align: center;
-            margin: 5px 0;
+            margin: 10px 0;
             font-weight: normal;
-            font-size: 18px;
+            font-size: 19px;
           }
           .field {
-            margin: 8px 0;
+            margin: 12px 0;
           }
           .field strong {
             display: inline-block;
-            width: 160px;
-            font-size: 14px;
+            width: 180px;
+            font-size: 18px;
           }
           .line {
             display: inline-block;
             width: 300px;
             border-bottom: 1px solid #000;
-            font-size: 14px;
+            font-size: 18px;
+            text-align: center;
           }
           .footer {
             text-align: right;
@@ -131,13 +135,30 @@ const RegistroConfirmacion = () => {
             text-align: center;
             margin-top: 40px;
           }
+          .signature-line {
+            display: inline-block;
+            width: 300px;
+            border-bottom: 1px solid #000;
+          }
+          .signature p {
+            margin-top: 5px;
+          }
           .header-space {
-        height: 100px; 
-        </style>
+            height: 60px;
+          }
+          .note {
+            margin-top: 20px;
+            font-size: 14px;
+          }
+          .note strong {
+            font-weight: bold;
+          }
+         </style>
       </head>
       <body>
         <div class="container">
-           <div class="header-space"></div>
+          <h4>CERTIFICADO DE CONFIRMACIÓN</h4>
+          <div class="header-space"></div>
   
           <div class="field">
             <strong>Nombre:</strong> <span class="line">${formData.nombre || '_________________'}</span>
@@ -154,7 +175,8 @@ const RegistroConfirmacion = () => {
           <div class="field">
             <strong>Celebrante:</strong> <span class="line">${formData.celebrante || '_________________'}</span>
           </div>
-  
+                <div class="header-space"></div>
+
           <h5>Registro Eclesiástico</h5>
           <div class="field">
             <strong>Año:</strong> <span class="line">${formData.registroEclesiastico?.ano || '__________'}</span>
@@ -162,27 +184,32 @@ const RegistroConfirmacion = () => {
             <strong>Página:</strong> <span class="line">${formData.registroEclesiastico?.pagina || '__________'}</span>
             <strong>Acta:</strong> <span class="line">${formData.registroEclesiastico?.acta || '__________'}</span>
           </div>
-  
+                <div class="header-space"></div>
+
           <h5>Registro Civil</h5>
           <div class="field">
             <strong>Año:</strong> <span class="line">${formData.registroCivil?.ano || '__________'}</span>
             <strong>Tomo:</strong> <span class="line">${formData.registroCivil?.tomo || '__________'}</span>
             <strong>Página:</strong> <span class="line">${formData.registroCivil?.pagina || '__________'}</span>
           </div>
-          <div class="field">
-            <strong>Nota:</strong> <span class="line">${formData.nota || '________________________________________'}</span>
-          </div>
   
+          <div class="header-space"></div>
           <div class="footer">
-            <strong>Socarte, a</strong>
+            <strong>Socarte, a</strong> 
             <span id="dia"></span> de <span id="mes"></span> del año <span id="anio"></span>
           </div>
-  
+          
+          <div class="header-space"></div>
           <div class="signature">
-            <p><strong>Parroco</strong></p>
-            <div class="line"></div>
+            <div class="signature-line"></div>
+            <p><strong>Párroco</strong></p>
+          </div>
+          
+          <div class="note">
+            <strong>Nota:</strong> <span class="line">${formData.nota || '_________________'}</span>
           </div>
         </div>
+  
   
         <script>
           window.onload = function () {

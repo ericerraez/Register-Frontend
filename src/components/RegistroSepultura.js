@@ -55,7 +55,10 @@ function RegistroSepultura() {
         <head>
           <title>Certificado de Sepultura</title>
           <style>
-            body 
+            body {
+              font-family: Arial, sans-serif;
+              font-size: 18px;
+            }
             .container {
               width: 600px;
               margin: auto;
@@ -73,117 +76,150 @@ function RegistroSepultura() {
               text-align: center;
               margin: 5px 0;
               font-weight: normal;
-              font-size: 18px;
+              font-size: 22px;
             }
             .field {
-              margin: 8px 0;
+              margin: 10px 0;
+              display: flex;
+              align-items: center;
             }
             .field strong {
               display: inline-block;
               width: 160px;
-              font-size: 14px;
+              font-size: 16px;
+              padding-right: 10px;
+            }
+            .field .line {
+              display: inline-block;
+              width: 300px;
+              border-bottom: 1px solid #000;
+              font-size: 16px;
+              padding: 5px 0;
             }
             .line {
               display: inline-block;
               width: 300px;
               border-bottom: 1px solid #000;
-              font-size: 14px;
+              font-size: 16px;
+              padding: 5px 0;
             }
             .footer {
               text-align: right;
               margin-top: 30px;
               font-size: 14px;
             }
-            .signature {
-              text-align: center;
-              margin-top: 40px;
+            .signature-line {
+              width: 200px;
+              border-top: 1px solid #000;
+              margin: 0 auto;
             }
-          .header-space {
-        height: 100px; 
-        </style>
-      </head>
-      <body>
-        <div class="container">
-           <div class="header-space"></div>
+            .signature p {
+              text-align: center; 
+              margin: 0;
+            }
+            .header-space {
+              height: 60px;
+            }
+            .note {
+              text-align: left;
+              margin-top: 20px;
+              font-size: 14px;
+            }
+          </style>
+        </head>
+        <body>
+          <div class="container">
+            <h4>CERTIFICADO DE SEPULTURA</h4>
+            <div class="header-space"></div>
+    
+            <div class="field">
+              <strong>Nombre:</strong><span class="line">${registro.nombre || '_________________'}</span>
+            </div>
+            <div class="field">
+              <strong>Estado Civil:</strong><span class="line">${registro.estado_civil || '_________________'}</span>
+            </div>
+            <div class="field">
+              <strong>Edad:</strong><span class="line">${registro.edad || '_________________'}</span>
+            </div>
+            <div class="field">
+              <strong>Fecha de Fallecimiento:</strong><span class="line">${registro.fecha_fallecimiento || '_________________'}</span>
+            </div>
+            <div class="field">
+              <strong>A causa De:</strong><span class="line">${registro.motivo_fallecimiento || '_________________'}</span>
+            </div>
+            <div class="header-space"></div>
   
-          <div class="field">
-              <strong>Nombre:</strong> <span class="line">${registro.nombre || '_________________'}</span>
-            </div>
             <div class="field">
-              <strong>Estado Civil:</strong> <span class="line">${registro.estado_civil || '_________________'}</span>
+              <div>Después de la celebración eucarística de exequias, se dio cristiana sepultura a sus restos mortales en el cementerio:</div> 
+              <span class="line">${registro.parroco}</span> <strong>El día</strong> <span>${registro.fecha_sepultura || '_________________'}</span>
             </div>
-            <div class="field">
-              <strong>Edad:</strong> <span class="line">${registro.edad || '_________________'}</span>
-            </div>
-            <div class="field">
-              <strong>Fecha de Fallecimiento:</strong> <span class="line">${registro.fecha_fallecimiento || '_________________'}</span>
-            </div>
-            <div class="field">
-              <strong>A causa De:</strong> <span class="line">${registro.motivo_fallecimiento || '_________________'}</span>
-            </div>
-            <div class="field">
-              <div>Despues de la celebración eucarística de exequias, se dio cristiana sepultura a sus restos mortales
-              en el cementerio:</div> <span class="line">${registro.parroco }</span> <strong>El día</strong class="line"> <span>${registro.fecha_sepultura || '_________________'}</span>
-            </div>
-
+            <div class="header-space"></div>
+  
             <h5>Registro Eclesiástico</h5>
             <div class="field">
-              <strong>Año:</strong> <span class="line">${registro.ano_registro_eclesiastico || '__________'}</span>
-              <strong>Tomo:</strong> <span class="line">${registro.tomo || '__________'}</span>
-              <strong>Página:</strong> <span class="line">${registro.pagina || '__________'}</span>
-              <strong>Acta:</strong> <span class="line">${registro.acta || '__________'}</span>
+              <strong>Año:</strong><span class="line">${registro.ano_registro_eclesiastico || '__________'}</span>
+              <strong>Tomo:</strong><span class="line">${registro.tomo || '__________'}</span>
+              <strong>Página:</strong><span class="line">${registro.pagina || '__________'}</span>
+              <strong>Acta:</strong><span class="line">${registro.acta || '__________'}</span>
             </div>
-
+            <div class="header-space"></div>
+  
             <h5>Registro Civil</h5>
             <div class="field">
-              <strong>Año:</strong> <span class="line">${registro.datos_registro_civil_ano || '__________'}</span>
-              <strong>Tomo:</strong> <span class="line">${registro.datos_registro_civil_tomo || '__________'}</span>
-              <strong>Página:</strong> <span class="line">${registro.datos_registro_civil_pagina || '__________'}</span>
-              <strong>Acta:</strong> <span class="line">${registro.datos_registro_civil_acta || '__________'}</span>
+              <strong>Año:</strong><span class="line">${registro.datos_registro_civil_ano || '__________'}</span>
+              <strong>Tomo:</strong><span class="line">${registro.datos_registro_civil_tomo || '__________'}</span>
+              <strong>Página:</strong><span class="line">${registro.datos_registro_civil_pagina || '__________'}</span>
+              <strong>Acta:</strong><span class="line">${registro.datos_registro_civil_acta || '__________'}</span>
             </div>
-
+    
             <div class="field">
-              <strong>Fecha de Emisión:</strong> <span class="line">${registro.fecha_emision_certificado_sepultura || '__________'}</span>
+              <strong>Fecha de Emisión:</strong><span class="line">${registro.fecha_emision_certificado_sepultura || '__________'}</span>
             </div>
-            <div class="field">
-              <strong>Nota:</strong> <span class="line">${registro.nota || '________________________________________'}</span>
-            </div>
-
+    
             <div class="footer">
-              <strong>Fecha:</strong> 
+              <strong>Fecha:</strong>
               <span id="dia"></span> de 
               <span id="mes"></span> del año
               <span id="anio"></span>
             </div>
-
+            <div class="header-space"></div>
+  
             <div class="signature">
-              <p><strong>Parroco</strong></p>
-              <div class="line"></div>
+              <div class="signature-line"></div>
+              <p><strong>Párroco</strong></p>
+            </div>
+  
+            <div class="header-space"></div>
+  
+            <div class="field">
+              <strong>Nota:</strong><span class="line">${registro.nota || '________________________________________'}</span>
             </div>
           </div>
-
+          <div class="header-space"></div>
+  
           <script>
             window.onload = function () {
               const fecha = new Date();
               const dia = fecha.getDate();
               const meses = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"];
-              const mes = meses[fecha.getMonth()];  
-              const anio = fecha.getFullYear();  
-
+              const mes = meses[fecha.getMonth()];
+              const anio = fecha.getFullYear();
+      
               document.getElementById('dia').textContent = dia;
               document.getElementById('mes').textContent = mes;
-              document.getElementById('anio').textContent = anio;  
-
+              document.getElementById('anio').textContent = anio;
+      
               window.print();
             };
           </script>
+          
         </body>
       </html>
     `;
     printWindow.document.write(content);
     printWindow.document.close();
-};
-
+  };
+  
 
 
   return (
@@ -203,7 +239,7 @@ function RegistroSepultura() {
         <TextField label="Edad" name="edad" value={formData.edad} onChange={handleChange} fullWidth margin="normal" type="number" />
         <TextField label="Fecha de Fallecimiento" name="fecha_fallecimiento" value={formData.fecha_fallecimiento} onChange={handleChange} fullWidth margin="normal" type="date" InputLabelProps={{ shrink: true }} />
         <TextField label="Motivo de Fallecimiento" name="motivo_fallecimiento" value={formData.motivo_fallecimiento} onChange={handleChange} fullWidth margin="normal" />
-        <TextField label="Lugar" name="parroco" value={formData.parroco} onChange={handleChange} fullWidth margin="normal" />
+        <TextField label="Lugar de Sepultura" name="parroco" value={formData.parroco} onChange={handleChange} fullWidth margin="normal" />
         <TextField label="Fecha de Sepultura" name="fecha_sepultura" value={formData.fecha_sepultura} onChange={handleChange} fullWidth margin="normal" type="date" InputLabelProps={{ shrink: true }} />
         <TextField label="Año Registro Eclesiástico" name="ano_registro_eclesiastico" value={formData.ano_registro_eclesiastico} onChange={handleChange} fullWidth margin="normal" />
         <TextField label="Tomo Registro Eclesiástico" name="tomo" value={formData.tomo} onChange={handleChange} fullWidth margin="normal" />

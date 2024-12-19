@@ -37,7 +37,9 @@ function DetalleComunion() {
    <head>
      <title>Certificado de Primera Comunión</title>
      <style>
-       body 
+       body {
+         font-family: Arial, sans-serif;
+       }
        .container {
          width: 600px;
          margin: auto;
@@ -55,40 +57,53 @@ function DetalleComunion() {
          text-align: center;
          margin: 5px 0;
          font-weight: normal;
-         font-size: 18px;
+         font-size: 22px; /* Tamaño aumentado */
        }
        .field {
          margin: 8px 0;
+         display: flex;
+         justify-content: space-between;
+         align-items: center;
        }
        .field strong {
          display: inline-block;
          width: 160px;
-         font-size: 14px;
+         font-size: 18px
+         text-align: left;
        }
        .line {
          display: inline-block;
          width: 300px;
          border-bottom: 1px solid #000;
-         font-size: 14px;
+         font-size: 16px; /* Tamaño aumentado */
+         text-align: center;
        }
        .footer {
          text-align: right;
          margin-top: 30px;
-         font-size: 14px;
+         font-size: 16px; /* Tamaño aumentado */
        }
        .signature {
          text-align: center;
          margin-top: 40px;
        }
+       .signature-line {
+         border-bottom: 1px solid #000;
+         width: 200px;
+         margin: 0 auto 5px;
+       }
        .header-space {
-        height: 90px; 
-        </style>
-      </head>
-      <body>
-        <div class="container">
-           <div class="header-space"></div>
-  
-          <div class="field">
+         height: 60px;
+       }
+     </style>
+   </head>
+   <body>
+   <div class="container">
+    <h4>CERTIFICADO DE PRIMERA COMUNIÓN</h4>
+    <div class="spacer"></div>
+     <div class="container">
+       <div class="header-space"></div>
+       <div class="field">
          <strong>Nombre:</strong> <span class="line">${registro.nombre || '_________________'}</span>
        </div>
        <div class="field">
@@ -103,16 +118,21 @@ function DetalleComunion() {
        <div class="field">
          <strong>Celebrante:</strong> <span class="line">${registro.celebrante || '_________________'}</span>
        </div>
+            <div class="header-space"></div>
 
-       <h5>Registro eclesiástico</h5>
+       <h5>Registro Eclesiástico</h5>
+                   <div class="header-space"></div>
        <div class="field">
          <strong>Año:</strong> <span class="line">${registro.ano_registro_eclesiastico || '__________'}</span>
          <strong>Tomo:</strong> <span class="line">${registro.tomo || '__________'}</span>
          <strong>Página:</strong> <span class="line">${registro.pagina || '__________'}</span>
          <strong>Acta:</strong> <span class="line">${registro.acta || '__________'}</span>
        </div>
+            <div class="header-space"></div>
 
        <h5>Registro Civil</h5>
+                   <div class="header-space"></div>
+
        <div class="field">
          <strong>Año:</strong> <span class="line">${registro.datos_registro_civil_acta || '__________'}</span>
          <strong>Tomo:</strong> <span class="line">${registro.datos_registro_civil_tomo || '__________'}</span>
@@ -121,21 +141,21 @@ function DetalleComunion() {
        <div class="field">
          <strong>Fecha de Emisión:</strong> <span class="line">${registro.fecha_emision || '_________________'}</span>
        </div>
-       <div class="field">
-         <strong>Nota:</strong> <span class="line">${registro.nota || '________________________________________'}</span>
-       </div>
+       <div class="header-space"></div>
+        <div class="signature">
+      <div class="signature-line"></div>
+      <p><strong>Párroco</strong></p>
+    </div>
+       
 
        <div class="footer">
          <strong>Socarte, a</strong>
          <span id="dia"></span> de <span id="mes"></span> del año <span id="anio"></span>
        </div>
-
-       <div class="signature">
-         <p><strong>Parroco</strong></p>
-         <div class="line"></div>
-       </div>
      </div>
-
+    <div class="field">
+         <p>${registro.nota || 'Nota:_____________________________________________________'}</p>
+       </div>
      <script>
        window.onload = function () {
          const fecha = new Date();
@@ -152,14 +172,14 @@ function DetalleComunion() {
        };
      </script>
    </body>
-   </html>
+ </html>
+
  `;
 
-
     printWindow.document.write(content);
-    printWindow.document.close(content);
-
+    printWindow.document.close();
 };
+
 
 
   const handleDelete = async (id) => {

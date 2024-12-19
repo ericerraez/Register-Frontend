@@ -40,41 +40,41 @@ function DetalleMatrimonio() {
         <head>
           <title>Imprimir Registro de Matrimonio</title>
           <style>
-            body 
+            body {
+              font-family: Arial, sans-serif;
+              font-size: 18px;
+            }
             .container {
               max-width: 600px;
               margin: auto;
               padding: 20px;
-              background: rgba(255, 255, 255, 0.8);
               border-radius: 10px;
-            }
-            .logo {
-              width: 120px;
-              height: auto;
-              margin-bottom: 20px;
-              display: block;
-              margin-left: auto;
-              margin-right: auto;
             }
             h4, h5 {
               text-align: center;
               margin: 5px 0;
               font-weight: normal;
-              font-size: 18px;
+              font-size: 22px;
             }
             .field {
-              margin: 8px 0;
+              margin: 10px 0;
+              display: flex;
+              align-items: center;
             }
             .field strong {
               display: inline-block;
               width: 160px;
-              font-size: 14px;
+              text-align: left;
+              font-size: 16px;
+              padding-right: 10px;
             }
             .line {
               display: inline-block;
               width: 300px;
               border-bottom: 1px solid #000;
-              font-size: 14px;
+              text-align: center;
+              font-size: 16px;
+              padding: 5px 0;
             }
             .footer {
               text-align: right;
@@ -85,60 +85,82 @@ function DetalleMatrimonio() {
               text-align: center;
               margin-top: 40px;
             }
-          .header-space {
-        height: 100px; 
-        </style>
-      </head>
-      <body>
-        <div class="container">
-           <div class="header-space"></div>
-  
-          <div class="field">
-              <strong>Conyuges:</strong> <span class="line">${registro.conyuges || 'Desconocidos'}</span>
-            </div>
-            <div class="field">
-              <strong>Fecha de Matrimonio:</strong> <span class="line">${registro.fecha_matrimonio || 'Desconocida'}</span>
-            </div>
-            <div class="field">
-              <strong>Testigos:</strong> <span class="line">${registro.testigos || 'Desconocidos'}</span>
-            </div>
-            <div class="field">
-              <strong>Padrinos:</strong> <span class="line">${registro.padrinos || 'Desconocidos'}</span>
-            </div>
-            <div class="field">
-              <strong>Celebrante:</strong> <span class="line">${registro.celebrante || 'Desconocido'}</span>
-            </div>
-  
-            <h5>Registro eclesiástico</h5>
-            <div class="field">
-              <strong>Año:</strong> <span class="line">${registro.ano_registro_eclesiastico || '__________'}</span>
-              <strong>Tomo:</strong> <span class="line">${registro.tomo_registro_eclesiastico || '__________'}</span>
-              <strong>Página:</strong> <span class="line">${registro.pagina_registro_eclesiastico || '__________'}</span>
-              <strong>Acta:</strong> <span class="line">${registro.acta_registro_eclesiastico || '__________'}</span>
-            </div>
-  
-            <h5>Registro civil</h5>
-            <div class="field">
-              <strong>Año:</strong> <span class="line">${registro.ano_registro_civil || '__________'}</span>
-              <strong>Tomo:</strong> <span class="line">${registro.tomo_registro_civil || '__________'}</span>
-              <strong>Página:</strong> <span class="line">${registro.pagina_registro_civil || '__________'}</span>
-              <strong>Acta:</strong> <span class="line">${registro.acta_registro_civil || '__________'}</span>
-            </div>
+            .signature-line {
+              width: 200px;
+              border-top: 1px solid #000;
+              margin: 0 auto;
+            }
+            .header-space {
+              height: 60px;
+            }
+            .note {
+              text-align: left;
+              margin-top: 20px;
+              font-size: 14px;
+            }
+          </style>
+        </head>
+        <body>
+          <div class="container">
+            <h4>REGISTRO DE MATRIMONIO</h4>
+            <div class="header-space"></div>
   
             <div class="field">
-              <strong>Nota:</strong> <span class="line">${registro.nota || '________________________________________'}</span>
+              <strong>Có  nyuges:</strong><span class="line">${registro.conyuges || 'Desconocidos'}</span>
+            </div>
+            <div class="field">
+              <strong>Fecha de Matrimonio:</strong><span class="line">${registro.fecha_matrimonio || 'Desconocida'}</span>
+            </div>
+            <div class="field">
+              <strong>Testigos:</strong><span class="line">${registro.testigos || 'Desconocidos'}</span>
+            </div>
+            <div class="field">
+              <strong>Padrinos:</strong><span class="line">${registro.padrinos || 'Desconocidos'}</span>
+            </div>
+            <div class="field">
+              <strong>Celebrante:</strong><span class="line">${registro.celebrante || 'Desconocido'}</span>
             </div>
   
+            <div class="header-space"></div>
+  
+            <h5>Registro Eclesiástico</h5>
+
+            <div class="header-space"></div>
+            <div class="field">
+              <strong>Año:</strong><span class="line">${registro.ano_registro_eclesiastico || '__________'}</span>
+              <strong>Tomo:</strong><span class="line">${registro.tomo_registro_eclesiastico || '__________'}</span>
+              <strong>Página:</strong><span class="line">${registro.pagina_registro_eclesiastico || '__________'}</span>
+              <strong>Acta:</strong><span class="line">${registro.acta_registro_eclesiastico || '__________'}</span>
+            </div>
+              <div class="header-space"></div>
+
+            <h5>Registro Civil</h5>
+            <div class="header-space"></div>
+
+            <div class="field">
+              <strong>Año:</strong><span class="line">${registro.ano_registro_civil || '__________'}</span>
+              <strong>Tomo:</strong><span class="line">${registro.tomo_registro_civil || '__________'}</span>
+              <strong>Página:</strong><span class="line">${registro.pagina_registro_civil || '__________'}</span>
+              <strong>Acta:</strong><span class="line">${registro.acta_registro_civil || '__________'}</span>
+            </div>
+  
+    
+              <div class="header-space"></div>
+
             <div class="footer">
               <strong>Socarte, a</strong> 
-              <span id="dia"></span> de 
-              <span id="mes"></span> del año
-              <span id="anio"></span>
+              <span id="dia"></span> de <span id="mes"></span> del año <span id="anio"></span>
             </div>
+                        <div class="header-space"></div>
+
   
             <div class="signature">
-              <p><strong>Parroco</strong></p>
-              <div class="line"></div>
+              <div class="signature-line"></div>
+              <p><strong>Párroco</strong></p>
+            </div>
+  
+            <div class="note">
+              <strong>Nota:</strong> <span>${registro.nota || '_________________'}</span>
             </div>
           </div>
   
@@ -162,6 +184,7 @@ function DetalleMatrimonio() {
     `);
     printWindow.document.close();
   };
+  
   
 
 

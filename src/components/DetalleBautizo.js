@@ -34,140 +34,157 @@ function DetalleBautizo() {
     const printWindow = window.open('', '', 'height=600,width=800');
     const content = `
       <html>
-<head>
-  <title>Certificado de Bautizo</title>
-  <style>
-    body {
-    .container {
-      width: 600px;
-      margin: auto;
-      padding: 20px;
-      background: rgba(255, 255, 255, 0.8); /* Fondo semi-transparente para que el texto sea legible */
-      border-radius: 10px;
-    }
-    .spacer {
-      height: 50px; /* Espacio vacío al inicio */
-    }
-    h4, h5 {
-      text-align: center;
-      margin: 5px 0;
-      font-weight: normal;
-      font-size: 18px;
-    }
-    .field {
-      margin: 8px 0;
-    }
-    .field strong {
-      display: inline-block;
-      width: 160px;
-      font-size: 14px;
-    }
-    .line {
-      display: inline-block;
-      width: 300px;
-      border-bottom: 1px solid #000;
-      font-size: 14px;
-    }
-      .header-space {
-        height: 50px; 
-    .footer {
-      text-align: right;
-      margin-top: 30px;
-      font-size: 14px;
-    }
-    .signature {
-      text-align: center;
-      margin-top: 40px;
-    }
-  </style>
-</head>
-<body>
-
-  <div class="spacer"></div> <!-- Espacio adicional al inicio -->
-  <div class="container">
-  <div class="header-space"></div>
-    <div class="field">
-      <strong>Fecha de Bautizo:</strong> <span class="line">${registro.fecha_bautizo || '_________________'}</span>
-    </div>
-    <div class="field">
-      <strong>Fecha de Nacimiento:</strong> <span class="line">${registro.fecha_nacimiento || '_________________'}</span>
-    </div>
-    <div class="field">
-      <strong>Lugar de Nacimiento:</strong> <span class="line">${registro.lugar_nacimiento || '_________________'}</span>
-    </div>
-    <div class="field">
-      <strong>Padre:</strong> <span class="line">${registro.padre || '_________________'}</span>
-    </div>
-    <div class="field">
-      <strong>Madre:</strong> <span class="line">${registro.madre || '_________________'}</span>
-    </div>
-    <div class="field">
-      <strong>Padrinos:</strong> <span class="line">${registro.padrinos || '_________________'}</span>
-    </div>
-    <div class="field">
-      <strong>Celebrante:</strong> <span class="line">${registro.celebrante || '_________________'}</span>
-    </div>
-
-    <h5>Registro Eclesiástico</h5>
-    <div class="field">
-      <strong>Año:</strong> <span class="line">${registro.ano_registro_eclesiastico || '__________'}</span>
-      <strong>Tomo:</strong> <span class="line">${registro.tomo_registro_eclesiastico || '__________'}</span>
-      <strong>Página:</strong> <span class="line">${registro.pagina_registro_eclesiastico || '__________'}</span>
-      <strong>Acta:</strong> <span class="line">${registro.acta_registro_eclesiastico || '__________'}</span>
-    </div>
-
-    <h5>Registro Civil</h5>
-    <div class="field">
-      <strong>Año:</strong> <span class="line">${registro.ano_registro_civil || '__________'}</span>
-      <strong>Tomo:</strong> <span class="line">${registro.tomo_registro_civil || '__________'}</span>
-      <strong>Página:</strong> <span class="line">${registro.pagina_registro_civil || '__________'}</span>
-      <strong>Acta:</strong> <span class="line">${registro.acta_registro_civil || '__________'}</span>
-    </div>
-    <div class="field">
-      <strong>Cédula:</strong> <span class="line">${registro.cedula_registro_civil || '__________'}</span>
-    </div>
-
-    <div class="field">
-      <strong>Nota:</strong> <span class="line">${registro.nota || '________________________________________'}</span>
-    </div>
-
-    <div class="footer">
-      <strong>Socarte, a</strong> 
-      <span id="dia"></span> de 
-      <span id="mes"></span> del año
-      <span id="anio"></span>
-    </div>
-
-    <div class="signature">
-      <p><strong>Parroco</strong></p>
-      <div class="line"></div>
-    </div>
-  </div>
-
-  <script>
-    window.onload = function () {
-      const fecha = new Date();
-      const dia = fecha.getDate();
-      const meses = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"];
-      const mes = meses[fecha.getMonth()];
-      const anio = fecha.getFullYear();
-
-      document.getElementById('dia').textContent = dia;
-      document.getElementById('mes').textContent = mes;
-      document.getElementById('anio').textContent = anio;
-
-      window.print();
-    };
-  </script>
-</body>
-</html>
+    <head>
+      <title>Certificado de Bautizo</title>
+      <style>
+        body {
+          font-family: Arial, sans-serif;
+        }
+        .container {
+          width: 600px;
+          margin: auto;
+          padding: 20px;
+          background: rgba(255, 255, 255, 0.8);
+          border-radius: 10px;
+        }
+        .spacer {
+          height: 50px;
+        }
+        h4, h5 {
+          text-align: center;
+          margin: 5px 0;
+          font-weight: normal;
+          font-size: 24px; /* Aumentado */
+        }
+        .field {
+          margin: 8px 0;
+        }
+        .field strong {
+          display: inline-block;
+          width: 160px;
+          font-size: 18px; /* Aumentado */
+          text-align: left; /* Alineado a la izquierda */
+        }
+        .line {
+          display: inline-block;
+          width: 300px;
+          border-bottom: 1px solid #000;
+          font-size: 18px; /* Aumentado */
+          text-align: center; /* Centrado del texto introducido */
+        }
+        .footer {
+          text-align: left;
+          margin-top: 30px;
+          font-size: 18px; /* Aumentado */
+        }
+        .signature {
+          text-align: center;
+          margin-top: 40px;
+        }
+        .signature-line {
+          border-bottom: 1px solid #000;
+          width: 200px;
+          margin: 0 auto 5px;
+        }
+        .note {
+          text-align: left; /* Alineación a la izquierda */
+          margin-top: 40px;
+          font-size: 16px; /* Aumentado */
+          font-style: italic;
+        }
+        .header-space {
+          height: 60px;
+        }
+      </style>
+    </head>
+    <body>
+      <div class="container">
+        <h4>CERTIFICADO DE BAUTIZO</h4>
+        <div class="spacer"></div>
+        <div class="field">
+          <strong>Fecha de Bautizo:</strong> <span class="line">${registro.fecha_bautizo || '_________________'}</span>
+        </div>
+        <div class="field">
+          <strong>Fecha de Nacimiento:</strong> <span class="line">${registro.fecha_nacimiento || '_________________'}</span>
+        </div>
+        <div class="field">
+          <strong>Lugar de Nacimiento:</strong> <span class="line">${registro.lugar_nacimiento || '_________________'}</span>
+        </div>
+        <div class="field">
+          <strong>Padre:</strong> <span class="line">${registro.padre || '_________________'}</span>
+        </div>
+        <div class="field">
+          <strong>Madre:</strong> <span class="line">${registro.madre || '_________________'}</span>
+        </div>
+        <div class="field">
+          <strong>Padrinos:</strong> <span class="line">${registro.padrinos || '_________________'}</span>
+        </div>
+        <div class="field">
+          <strong>Celebrante:</strong> <span class="line">${registro.celebrante || '_________________'}</span>
+        </div>
+  
+        <div class="header-space"></div>
+  
+        <h5>Registro Eclesiástico</h5>
+        <div class="field">
+          <strong>Año:</strong> <span class="line">${registro.ano_registro_eclesiastico || '__________'}</span>
+          <strong>Tomo:</strong> <span class="line">${registro.tomo_registro_eclesiastico || '__________'}</span>
+          <strong>Página:</strong> <span class="line">${registro.pagina_registro_eclesiastico || '__________'}</span>
+          <strong>Acta:</strong> <span class="line">${registro.acta_registro_eclesiastico || '__________'}</span>
+        </div>
+  
+        <div class="header-space"></div>
+  
+        <h5>Registro Civil</h5>
+        <div class="field">
+          <strong>Año:</strong> <span class="line">${registro.ano_registro_civil || '__________'}</span>
+          <strong>Tomo:</strong> <span class="line">${registro.tomo_registro_civil || '__________'}</span>
+          <strong>Página:</strong> <span class="line">${registro.pagina_registro_civil || '__________'}</span>
+          <strong>Acta:</strong> <span class="line">${registro.acta_registro_civil || '__________'}</span>
+        </div>
+        <div class="field">
+          <strong>Cédula:</strong> <span class="line">${registro.cedula_registro_civil || '__________'}</span>
+        </div>
+  
+        <div class="footer">
+          <strong>Socarte, a</strong> 
+          <span id="dia"></span> de 
+          <span id="mes"></span> del año
+          <span id="anio"></span>
+        </div>
+        <div class="header-space"></div>
+        <div class="signature">
+          <div class="signature-line"></div>
+          <p><strong>Párroco</strong></p>
+        </div>
+  
+        <div class="note">
+          <strong>Nota:</strong> <span class="line">${registro.nota || '_________________'}</span>
+        </div>
+      </div>
+  
+      <script>
+        window.onload = function () {
+          const fecha = new Date();
+          const dia = fecha.getDate();
+          const meses = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"];
+          const mes = meses[fecha.getMonth()];
+          const anio = fecha.getFullYear();
+  
+          document.getElementById('dia').textContent = dia;
+          document.getElementById('mes').textContent = mes;
+          document.getElementById('anio').textContent = anio;
+  
+          window.print();
+        };
+      </script>
+    </body>
+    </html>
     `;
     printWindow.document.write(content);
     printWindow.document.close();
   };
-  
-  
-
+ 
   const handleDelete = async (id) => {
     try {
       await axios.delete(`https://register-production.up.railway.app/bautizos/${id}/`);
