@@ -11,6 +11,7 @@ function RegistroComunion() {
     madre: '',
     celebrante: '',
     fecha_registro: '',
+    padrinos: '',
     ano_registro_eclesiastico: '',
     tomo: '',
     pagina: '',
@@ -49,7 +50,7 @@ function RegistroComunion() {
   const handlePrint = () => {
     const printWindow = window.open('', '', 'height=600,width=700');
     const content = `
-      <html>
+       <html>
    <head>
      <title>Certificado de Primera Comunión</title>
      <style>
@@ -111,11 +112,14 @@ function RegistroComunion() {
        .header-space {
          height: 60px;
        }
-        </style>
-      </head>
-      <body>
-        <div class="container">
-           <div class="header-space"></div>
+     </style>
+   </head>
+   <body>
+   <div class="container">
+    <h4>CERTIFICADO DE PRIMERA COMUNIÓN</h4>
+    <div class="spacer"></div>
+     <div class="container">
+       <div class="header-space"></div>
   
           <div class="field">
             <strong>Nombre:</strong> <span class="line">${formData.nombre || '_________________'}</span>
@@ -132,7 +136,11 @@ function RegistroComunion() {
           <div class="field">
             <strong>Celebrante:</strong> <span class="line">${formData.celebrante || '_________________'}</span>
           </div>
-  
+          <div class="field">
+            <strong>Padrinos:</strong> <span class="line">${formData.padrinos || '_________________'}</span>
+          </div>
+              <div class="header-space"></div>
+
           <h5>Registro eclesiástico</h5>
           <div class="field">
             <strong>Año:</strong> <span class="line">${formData.ano_registro_eclesiastico || '__________'}</span>
@@ -140,7 +148,8 @@ function RegistroComunion() {
             <strong>Página:</strong> <span class="line">${formData.pagina || '__________'}</span>
             <strong>Acta:</strong> <span class="line">${formData.acta || '__________'}</span>
           </div>
-  
+              <div class="header-space"></div>
+
           <h5>Registro Civil</h5>
           <div class="field">
             <strong>Año:</strong> <span class="line">${formData.datos_registro_civil_acta || '__________'}</span>
@@ -150,23 +159,25 @@ function RegistroComunion() {
           <div class="field">
             <strong>Fecha de Emisión:</strong> <span class="line">${formData.fecha_emision || '_________________'}</span>
           </div>
-          <div class="field">
-          </div>
+          <div class="header-space"></div>
+        <div class="signature">
+      <div class="signature-line"></div>
+      <p><strong>Párroco</strong></p>
+    </div>
+       
+          <div class="header-space"></div>
+
+       <div class="footer">
+         <strong>Socarte, a</strong>
+         <span id="dia"></span> de <span id="mes"></span> del año <span id="anio"></span>
+       </div>
+     </div>
+               <div class="header-space"></div>
+
           <div class="field">
             <strong>Nota:</strong> <span class="line">${formData.nota || '________________________________________'}</span>
           </div>
-  
-          <div class="footer">
-            <strong>Socarte, a</strong>
-            <span id="dia"></span> de <span id="mes"></span> del año <span id="anio"></span>
-          </div>
-  
-          <div class="signature">
-            <p><strong>Parroco</strong></p>
-            <div class="line"></div>
-          </div>
         </div>
-  
         <script>
           window.onload = function () {
             const fecha = new Date();
@@ -227,6 +238,7 @@ function RegistroComunion() {
         <TextField label="Padre" name="padre" value={formData.padre} onChange={handleChange} fullWidth margin="normal" />
         <TextField label="Madre" name="madre" value={formData.madre} onChange={handleChange} fullWidth margin="normal" />
         <TextField label="Celebrante" name="celebrante" value={formData.celebrante} onChange={handleChange} fullWidth margin="normal" />
+        <TextField label="Padrinos" name="padrinos" value={formData.padrinos} onChange={handleChange} fullWidth margin="normal" />
 
         <Typography variant="h6" gutterBottom>Registro Eclesiástico</Typography>
         <TextField label="Año" name="ano_registro_eclesiastico" value={formData.ano_registro_eclesiastico} onChange={handleChange} fullWidth margin="normal" />

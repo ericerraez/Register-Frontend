@@ -12,6 +12,8 @@ const RegistroConfirmacion = () => {
     padre: '',
     madre: '',
     celebrante: '',
+    padrinos: '',
+
     registroEclesiastico: {
       ano: '',
       tomo: '',
@@ -58,6 +60,7 @@ const RegistroConfirmacion = () => {
       padre: formData.padre,
       madre: formData.madre,
       celebrante: formData.celebrante,
+      padrinos: formData.padrinos,
       ano_registro_eclesiastico: formData.registroEclesiastico.ano,
       tomo_registro_eclesiastico: formData.registroEclesiastico.tomo,
       pagina_registro_eclesiastico: formData.registroEclesiastico.pagina,
@@ -175,6 +178,9 @@ const RegistroConfirmacion = () => {
           <div class="field">
             <strong>Celebrante:</strong> <span class="line">${formData.celebrante || '_________________'}</span>
           </div>
+           <div class="field">
+            <strong>Padrinos:</strong> <span class="line">${formData.padrinos || '_________________'}</span>
+          </div>
                 <div class="header-space"></div>
 
           <h5>Registro Eclesiástico</h5>
@@ -251,7 +257,8 @@ const RegistroConfirmacion = () => {
         <TextField label="Padre" name="padre" value={formData.padre} onChange={handleChange} fullWidth margin="normal" />
         <TextField label="Madre" name="madre" value={formData.madre} onChange={handleChange} fullWidth margin="normal" />
         <TextField label="Celebrante" name="celebrante" value={formData.celebrante} onChange={handleChange} fullWidth margin="normal" />
-        
+        <TextField label="Padrinos" name="padrinos" value={formData.padrinos} onChange={handleChange} fullWidth margin="normal" />
+
         <Typography variant="h6" gutterBottom>Registro Eclesiástico</Typography>
         <TextField label="Año" name="registroEclesiastico.ano" value={formData.registroEclesiastico.ano} onChange={handleChange} fullWidth margin="normal" />
         <TextField label="Tomo" name="registroEclesiastico.tomo" value={formData.registroEclesiastico.tomo} onChange={handleChange} fullWidth margin="normal" />

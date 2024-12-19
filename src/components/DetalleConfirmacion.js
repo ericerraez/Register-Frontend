@@ -125,6 +125,9 @@ function DetalleConfirmacion() {
           <div class="field">
             <strong>Celebrante:</strong> <span class="line">${registro.celebrante || '_________________'}</span>
           </div>
+          <div class="field">
+            <strong>Padrinos:</strong> <span class="line">${registro.padrinos || '_________________'}</span>
+          </div>
               <div class="header-space"></div>
 
           <h5>Registro Eclesiástico</h5>
@@ -222,6 +225,7 @@ function DetalleConfirmacion() {
               <TableCell><b>Padre</b></TableCell>
               <TableCell><b>Madre</b></TableCell>
               <TableCell><b>Celebrante</b></TableCell>
+              <TableCell><b>Padrinos</b></TableCell>
               <TableCell><b>Fecha de Confirmación</b></TableCell>
               <TableCell><b>Año Eclesiástico</b></TableCell>
               <TableCell><b>Tomo</b></TableCell>

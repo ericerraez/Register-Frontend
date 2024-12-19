@@ -118,6 +118,9 @@ function DetalleComunion() {
        <div class="field">
          <strong>Celebrante:</strong> <span class="line">${registro.celebrante || '_________________'}</span>
        </div>
+       <div class="field">
+         <strong>Padrinos:</strong> <span class="line">${registro.padrinos || '_________________'}</span>
+       </div>
             <div class="header-space"></div>
 
        <h5>Registro Eclesiástico</h5>
