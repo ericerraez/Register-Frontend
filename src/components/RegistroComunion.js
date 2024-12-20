@@ -64,17 +64,14 @@ function RegistroComunion() {
          background: rgba(255, 255, 255, 0.8);
          border-radius: 10px;
        }
-       .logo {
-         width: 120px;
-         height: auto;
-         display: block;
-         margin: 0 auto 10px auto;
+       .spacer {
+        height: 50px;
        }
        h4, h5 {
          text-align: center;
          margin: 5px 0;
          font-weight: normal;
-         font-size: 22px; /* Tamaño aumentado */
+         font-size: 22px; 
        }
        .field {
          margin: 8px 0;
@@ -110,12 +107,15 @@ function RegistroComunion() {
          margin: 0 auto 5px;
        }
        .header-space {
-         height: 60px;
+         height: 20px;
        }
      </style>
    </head>
    <body>
-   <div class="container">
+   <div class="spacer"></div>
+      <div class="container">        
+        <div class="spacer"></div>
+
     <h4>CERTIFICADO DE PRIMERA COMUNIÓN</h4>
     <div class="spacer"></div>
      <div class="container">
@@ -142,6 +142,8 @@ function RegistroComunion() {
               <div class="header-space"></div>
 
           <h5>Registro eclesiástico</h5>
+                        <div class="header-space"></div>
+
           <div class="field">
             <strong>Año:</strong> <span class="line">${formData.ano_registro_eclesiastico || '__________'}</span>
             <strong>Tomo:</strong> <span class="line">${formData.tomo || '__________'}</span>
@@ -151,6 +153,8 @@ function RegistroComunion() {
               <div class="header-space"></div>
 
           <h5>Registro Civil</h5>
+                        <div class="header-space"></div>
+
           <div class="field">
             <strong>Año:</strong> <span class="line">${formData.datos_registro_civil_acta || '__________'}</span>
             <strong>Tomo:</strong> <span class="line">${formData.datos_registro_civil_tomo || '__________'}</span>

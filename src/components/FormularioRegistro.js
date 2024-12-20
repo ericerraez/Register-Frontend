@@ -58,7 +58,6 @@ function FormularioRegistro() {
           width: 600px;
           margin: auto;
           padding: 20px;
-          background: rgba(255, 255, 255, 0.8);
           border-radius: 10px;
         }
         .spacer {
@@ -68,7 +67,7 @@ function FormularioRegistro() {
           text-align: center;
           margin: 5px 0;
           font-weight: normal;
-          font-size: 24px; /* Aumentado */
+          font-size: 18px; /* Aumentado */
         }
         .field {
           margin: 8px 0;
@@ -76,20 +75,20 @@ function FormularioRegistro() {
         .field strong {
           display: inline-block;
           width: 160px;
-          font-size: 18px; /* Aumentado */
-          text-align: left; /* Alineado a la izquierda */
+          font-size: 15px;
+          text-align: left; 
         }
         .line {
           display: inline-block;
           width: 300px;
           border-bottom: 1px solid #000;
-          font-size: 18px; /* Aumentado */
+          font-size: 15px; /* Aumentado */
           text-align: center; /* Centrado del texto introducido */
         }
         .footer {
           text-align: left;
           margin-top: 30px;
-          font-size: 18px; /* Aumentado */
+          font-size: 15px; /* Aumentado */
         }
         .signature {
           text-align: center;
@@ -103,16 +102,18 @@ function FormularioRegistro() {
         .note {
           text-align: left; /* Alineación a la izquierda */
           margin-top: 40px;
-          font-size: 16px; /* Aumentado */
+          font-size: 15px; /* Aumentado */
           font-style: italic;
         }
         .header-space {
-          height: 60px;
+          height: 10px;
         }
       </style>
     </head>
     <body>
-      <div class="container">
+     <div class="spacer"></div>
+      <div class="container">        
+        <div class="spacer"></div>
         <h4>CERTIFICADO DE BAUTIZO</h4>
         <div class="spacer"></div>
         

@@ -62,7 +62,7 @@ function RegistroMatrimonio() {
               text-align: center;
               margin: 5px 0;
               font-weight: normal;
-              font-size: 22px;
+              font-size: 18px;
             }
             .field {
               margin: 10px 0;
@@ -73,7 +73,7 @@ function RegistroMatrimonio() {
               display: inline-block;
               width: 160px;
               text-align: left;
-              font-size: 16px;
+              font-size: 15px;
               padding-right: 10px;
             }
             .line {
@@ -81,13 +81,13 @@ function RegistroMatrimonio() {
               width: 300px;
               border-bottom: 1px solid #000;
               text-align: center;
-              font-size: 16px;
+              font-size: 15px;
               padding: 5px 0;
             }
             .footer {
               text-align: right;
               margin-top: 30px;
-              font-size: 14px;
+              font-size: 15px;
             }
             .signature {
               text-align: center;
@@ -99,18 +99,24 @@ function RegistroMatrimonio() {
               margin: 0 auto;
             }
             .header-space {
-              height: 60px;
+              height: 20px;
+            }
+           .spacer {
+            height: 60px;
             }
             .note {
               text-align: left;
               margin-top: 20px;
-              font-size: 14px;
+              font-size: 15px;
             }
           </style>
         </head>
         <body>
-          <div class="container">
+          <div class="spacer"></div>
+      <div class="container">        
+        <div class="spacer"></div>
             <h4>REGISTRO DE MATRIMONIO</h4>
+
             <div class="header-space"></div>
   
             <div class="field">

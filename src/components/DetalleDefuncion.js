@@ -52,7 +52,7 @@ function DetalleDefuncion() {
           text-align: center;
           margin: 5px 0;
           font-weight: normal;
-          font-size: 22px;
+          font-size: 18px;
         }
         .field {
           margin: 10px 0;
@@ -63,7 +63,7 @@ function DetalleDefuncion() {
           display: inline-block;
           width: 160px;
           text-align: left;
-          font-size: 16px;
+          font-size: 15px;
           padding-right: 10px;
         }
         .line {
@@ -77,7 +77,7 @@ function DetalleDefuncion() {
         .footer {
           text-align: right;
           margin-top: 30px;
-          font-size: 14px;
+          font-size: 15px;
         }
         .signature {
           text-align: center;
@@ -89,17 +89,22 @@ function DetalleDefuncion() {
           margin: 0 auto;
         }
         .header-space {
-          height: 60px;
+          height: 20px;
+        }
+          .spacer {
+        height: 50px;
         }
         .note {
           text-align: left;
           margin-top: 20px;
-          font-size: 14px;
+          font-size: 15px;
         }
       </style>
     </head>
     <body>
-      <div class="container">
+      <div class="spacer"></div>
+      <div class="container">        
+        <div class="spacer"></div>
         <h4>CERTIFICADO DE DEFUNCIÓN</h4>
         <div class="header-space"></div>
 

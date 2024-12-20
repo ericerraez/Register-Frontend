@@ -76,7 +76,7 @@ function RegistroSepultura() {
               text-align: center;
               margin: 5px 0;
               font-weight: normal;
-              font-size: 22px;
+              font-size: 18px;
             }
             .field {
               margin: 10px 0;
@@ -86,21 +86,21 @@ function RegistroSepultura() {
             .field strong {
               display: inline-block;
               width: 160px;
-              font-size: 16px;
+              font-size: 15px;
               padding-right: 10px;
             }
             .field .line {
               display: inline-block;
               width: 300px;
               border-bottom: 1px solid #000;
-              font-size: 16px;
+              font-size: 15px;
               padding: 5px 0;
             }
             .line {
               display: inline-block;
               width: 300px;
               border-bottom: 1px solid #000;
-              font-size: 16px;
+              font-size: 15px;
               padding: 5px 0;
             }
             .footer {
@@ -118,17 +118,22 @@ function RegistroSepultura() {
               margin: 0;
             }
             .header-space {
-              height: 60px;
+              height: 20px;
+            }
+            .spacer {
+            height: 60px;
             }
             .note {
               text-align: left;
               margin-top: 20px;
-              font-size: 14px;
+              font-size: 15px;
             }
           </style>
         </head>
         <body>
-          <div class="container">
+          <div class="spacer"></div>
+      <div class="container">        
+        <div class="spacer"></div>
             <h4>CERTIFICADO DE SEPULTURA</h4>
             <div class="header-space"></div>
     

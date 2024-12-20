@@ -44,20 +44,16 @@ function DetalleComunion() {
          width: 600px;
          margin: auto;
          padding: 20px;
-         background: rgba(255, 255, 255, 0.8);
          border-radius: 10px;
        }
-       .logo {
-         width: 120px;
-         height: auto;
-         display: block;
-         margin: 0 auto 10px auto;
+       .spacer {
+        height: 50px;
        }
        h4, h5 {
          text-align: center;
          margin: 5px 0;
          font-weight: normal;
-         font-size: 22px; /* Tamaño aumentado */
+         font-size: 18px; 
        }
        .field {
          margin: 8px 0;
@@ -68,20 +64,20 @@ function DetalleComunion() {
        .field strong {
          display: inline-block;
          width: 160px;
-         font-size: 18px
+         font-size: 15px
          text-align: left;
        }
        .line {
          display: inline-block;
          width: 300px;
          border-bottom: 1px solid #000;
-         font-size: 16px; /* Tamaño aumentado */
+         font-size: 15px; 
          text-align: center;
        }
        .footer {
          text-align: right;
          margin-top: 30px;
-         font-size: 16px; /* Tamaño aumentado */
+         font-size: 15px;
        }
        .signature {
          text-align: center;
@@ -93,12 +89,14 @@ function DetalleComunion() {
          margin: 0 auto 5px;
        }
        .header-space {
-         height: 60px;
+         height: 20px;
        }
      </style>
    </head>
    <body>
-   <div class="container">
+   <div class="spacer"></div>
+      <div class="container">        
+        <div class="spacer"></div>
     <h4>CERTIFICADO DE PRIMERA COMUNIÓN</h4>
     <div class="spacer"></div>
      <div class="container">

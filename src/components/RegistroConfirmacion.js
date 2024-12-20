@@ -102,17 +102,14 @@ const RegistroConfirmacion = () => {
             padding: 20px;
             border-radius: 10px;
           }
-          .logo {
-            width: 120px;
-            height: auto;
-            display: block;
-            margin: 0 auto 20px auto;
+          .spacer {
+          height: 50px;
           }
           h4, h5 {
             text-align: center;
             margin: 10px 0;
             font-weight: normal;
-            font-size: 19px;
+            font-size: 18px;
           }
           .field {
             margin: 12px 0;
@@ -120,19 +117,19 @@ const RegistroConfirmacion = () => {
           .field strong {
             display: inline-block;
             width: 180px;
-            font-size: 18px;
+            font-size: 16px;
           }
           .line {
             display: inline-block;
             width: 300px;
             border-bottom: 1px solid #000;
-            font-size: 18px;
+            font-size: 15px;
             text-align: center;
           }
           .footer {
             text-align: right;
             margin-top: 30px;
-            font-size: 14px;
+            font-size: 15px;
           }
           .signature {
             text-align: center;
@@ -147,11 +144,11 @@ const RegistroConfirmacion = () => {
             margin-top: 5px;
           }
           .header-space {
-            height: 60px;
+            height: 20px;
           }
           .note {
             margin-top: 20px;
-            font-size: 14px;
+            font-size: 15px;
           }
           .note strong {
             font-weight: bold;
@@ -159,9 +156,10 @@ const RegistroConfirmacion = () => {
          </style>
       </head>
       <body>
-        <div class="container">
+        <div class="spacer"></div>
+      <div class="container">        
+        <div class="spacer"></div>
           <h4>CERTIFICADO DE CONFIRMACIÓN</h4>
-          <div class="header-space"></div>
   
           <div class="field">
             <strong>Nombre:</strong> <span class="line">${formData.nombre || '_________________'}</span>
